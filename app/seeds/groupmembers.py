@@ -61,11 +61,6 @@ def seed_groupmembers(users, groups):
     )
 
     groupmember10 = GroupMember(
-        user=users[0],
-        group=groups[2]
-    )
-
-    groupmember11 = GroupMember(
         user=users[1],
         group=groups[2]
     )
@@ -81,7 +76,6 @@ def seed_groupmembers(users, groups):
         groupmember8,
         groupmember9,
         groupmember10,
-        groupmember11,
     ]
     for group_member in group_members:
         db.session.add(group_member)
