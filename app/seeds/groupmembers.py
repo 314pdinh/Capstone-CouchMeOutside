@@ -5,11 +5,11 @@ def seed_groupmembers(users, groups):
     
     
     if not users:
-        print("No users provided. Users list is empty or None.")
+        print("No users. Users list is empty.")
         # return
     
     if not groups:
-        print("---------------------No groups provided. Groups list is empty or None.--------------------------")
+        print("---------------------No groups. Groups list is empty.--------------------------")
         # return
     
     print("Seeding group members...")
