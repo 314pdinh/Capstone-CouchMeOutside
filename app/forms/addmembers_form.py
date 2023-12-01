@@ -4,4 +4,4 @@ from wtforms.validators import DataRequired, Length
 
 class AddMembersForm(FlaskForm):
     username=StringField('Username')
-    submit = SubmitField('Create Activity')
+    submit = SubmitField('Submit')
