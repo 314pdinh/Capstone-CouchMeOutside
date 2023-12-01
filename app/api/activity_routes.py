@@ -1,9 +1,9 @@
 from flask import Blueprint, jsonify, session, request
 from flask_login import current_user, login_required
 from app.models import  db, GroupMember, Activity
-from app.forms import CreateActivityForm, UpdateActivityForm
+from app.forms import ActivityForm
 from .auth_routes import validation_errors_to_error_messages
-# from .AWS_helpers import get_unique_filename, upload_file_to_s3, remove_file_from_s3
+from .AWS_helpers import get_unique_filename, upload_file_to_s3, remove_file_from_s3
 
 activity_routes = Blueprint("activities", __name__)
 
@@ -22,7 +22,7 @@ def create_new_activity(groupId):
     """
     This route will create a new activity for the current group.
     """
-    form = CreateActivityForm()
+    form = ActivityForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     
     if not current_user.is_authenticated:
@@ -44,15 +44,15 @@ def create_new_activity(groupId):
             activity_description = form.data['activity_description'],
         )
         
-        # activity_image = form.data["activity_image"]
-        # activity_image.filename = get_unique_filename(activity_image.filename)
-        # uploadActivityImage = upload_file_to_s3(activity_image)
+        activity_image = form.data["activity_image"]
+        activity_image.filename = get_unique_filename(activity_image.filename)
+        uploadActivityImage = upload_file_to_s3(activity_image)
 
-        # if 'url' not in uploadActivityImage:
-        #         print(uploadActivityImage)
-        #         return uploadActivityImage
-        # else:
-        #     newActivity.activity_image = uploadActivityImage['url']
+        if 'url' not in uploadActivityImage:
+                print(uploadActivityImage)
+                return uploadActivityImage
+        else:
+            newActivity.activity_image = uploadActivityImage['url']
         
         db.session.add(newActivity)
         db.session.commit()
@@ -68,7 +68,7 @@ def update_activity(activityId):
     This route will update a group's description, amount, and category.
     """
     activity_to_update = Activity.query.get(activityId)
-    form = UpdateActivityForm()
+    form = ActivityForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     
     if not current_user.is_authenticated:
@@ -81,12 +81,12 @@ def update_activity(activityId):
         activity_to_update.activity_name = form.data['activity_name']
         activity_to_update.activity_description = form.data['activity_description']
         
-        # activity_image = form.data['activity_image']
-        # if activity_image:
-        #     activity_image.filename = get_unique_filename(activity_image.filename)
-        #     uploadActivityImage = upload_file_to_s3(activity_image)
-        #     if 'url' in uploadActivityImage:
-        #         activity_to_update.activity_image = uploadActivityImage['url']
+        activity_image = form.data['activity_image']
+        if activity_image:
+            activity_image.filename = get_unique_filename(activity_image.filename)
+            uploadActivityImage = upload_file_to_s3(activity_image)
+            if 'url' in uploadActivityImage:
+                activity_to_update.activity_image = uploadActivityImage['url']
         
         db.session.commit()
         
