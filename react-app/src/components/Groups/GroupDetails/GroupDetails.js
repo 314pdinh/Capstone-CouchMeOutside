@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loadSingleGroupThunk } from "../../../store/group";
 import OpenModalButton from '../../OpenModalButton';
+import GroupManage from "../GroupManage/GroupManage";
+
 import './GroupDetails.css';
 
 
@@ -57,26 +59,33 @@ const GroupDetails = () => {
                     <div>Loading...</div>
                 ) : (
                     <div className="group-container">
+
                         <div className="group-header">
-                            <h1 className="group-name">
+                            <div className="group-name">
                                 <div className="group-image">
                                     <img src={singleGroup.group.group_image} alt="Group Image" />
                                 </div>
-                                <div className="group-name">
-                                    {singleGroup.group.group_name}
+
+
+                                <div className="group-header-description-header">
+
+                                    <div className="group-name">
+                                        <h1>
+                                            {singleGroup.group.group_name}
+                                        </h1>
+                                        <h2 className="note-description">{singleGroup.group.group_description}</h2>
+                                        <div className="group-manage-modal-owner">
+                                            {isOwner && (
+                                                <OpenModalButton
+                                                    modalComponent={<GroupManage singleGroup={singleGroup} />}
+                                                    buttonText="&#x2699; Settings"
+                                                    className={"server-emoji-button"}
+                                                />
+                                            )}
+                                        </div>
+                                    </div>
                                 </div>
-
-                            
-                            </h1>
-                        </div>
-
-
-                        <p>Description</p>
-                        <p className="note-description">{singleGroup.group.group_description}</p>
-
-                        <div className="add-member">
-
-                           
+                            </div>
                         </div>
 
                         {/* <div className="delete-member">
@@ -101,7 +110,7 @@ const GroupDetails = () => {
                                             user.id === singleGroup.group.owner_id &&
                                             user.username !== member && (
                                                 <div className="remove-member">
-                                                    
+
                                                 </div>
                                             )}
                                     </div>
@@ -113,7 +122,7 @@ const GroupDetails = () => {
                         <p>Members</p>
                         <p className="note-description">{singleGroup.group.members}</p>
                         <h2>Activities</h2>
-                        
+
 
                         {singleGroup.group.activities.map((activity, index) => (
                             <div key={index}>
