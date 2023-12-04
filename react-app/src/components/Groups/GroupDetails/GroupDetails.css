@@ -1,0 +1,33 @@
+.individiual-group-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.group-container {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.group-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.group-name {
+    display: flex;
+    align-items: center;
+}
+
+.group-name img {
+    width: 100%;
+    height: 400px;
+}
+
+.note-description {
+    margin-bottom: 15px;
+}

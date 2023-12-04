@@ -8,6 +8,8 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import Navigation from "./components/Navigation";
 import LandingPage from "./components/LandingPage/LandingPage";
 import AccountPage from "./components/AccountPage/TravelerDashboard";
+import GroupDetails from "./components/Groups/GroupDetails/GroupDetails";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -23,6 +25,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={LandingPage} />
           <ProtectedRoute exact path="/account" component={AccountPage} />
+          <ProtectedRoute exact path="/groups/:groupId" component={GroupDetails} />
           <Route path="/login" >
             <LoginFormPage />
           </Route>
