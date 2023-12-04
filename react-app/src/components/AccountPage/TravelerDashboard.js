@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { loadUserGroupsThunk } from '../../store/group';
-// import CreateGroupModal from "../Groups/CreateGroupModal/CreateGroupModal";
+import CreateGroupModal from "../Groups/CreateGroupModal/CreateGroupModal";
 import OpenModalButton from '../OpenModalButton';
 import './TravelerDashboard.css'
 
@@ -101,11 +101,11 @@ const AccountPage = () => {
                             <h1>New Group</h1>
                             <li className="">
 
-                                {/* <OpenModalButton
+                                <OpenModalButton
                                     modalComponent={<CreateGroupModal title="Create Group" />}
                                     buttonText="Create Group"
                                     className="open-create-server"
-                                /> */}
+                                />
 
                             </li>
                         </div>

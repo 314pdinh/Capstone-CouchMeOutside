@@ -38,15 +38,15 @@ def create_group():
             owner_id = current_user.id
         )
         
-        # group_image = form.data["group_image"]
-        # group_image.filename = get_unique_filename(group_image.filename)
-        # uploadGroupImage = upload_file_to_s3(group_image)
+        group_image = form.data["group_image"]
+        group_image.filename = get_unique_filename(group_image.filename)
+        uploadGroupImage = upload_file_to_s3(group_image)
 
-        # if 'url' not in uploadGroupImage:
-        #         print(uploadGroupImage)
-        #         return uploadGroupImage
-        # else:
-        #     newGroup.group_image = uploadGroupImage['url']
+        if 'url' not in uploadGroupImage:
+                print(uploadGroupImage)
+                return uploadGroupImage
+        else:
+            newGroup.group_image = uploadGroupImage['url']
 
         
         db.session.add(newGroup)
