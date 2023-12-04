@@ -1,0 +1,134 @@
+.account-outer-container {
+    max-width: 1625px;
+    margin: 0 auto;
+    padding: 50px;
+}
+
+.account-page-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.user-info-section {
+    background-color: rgb(91, 119, 209);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    height: fit-content;
+    padding: 30px;
+    position: sticky;
+    top: 100px; 
+    width: 25%;
+}
+
+.user-info-section .profile-picture {
+    width: 150px;
+    height: auto;
+    /* border-radius: 50%; */
+}
+
+.users-content-account {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    padding: 20px;
+}
+
+
+
+/* Groups */
+
+.user-groups-container {
+    margin-top: 50px;
+    padding: 20px;
+    background-color: azure;
+}
+
+.users-groups-boxes {
+    display: flex;
+    /* flex-direction: row; */
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.user-group-box {
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 20%;
+    height: fit-content;
+}
+
+.user-group-link {
+    text-decoration: none;
+    color: #1d52ff;
+}
+
+.user-group-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.user-group-details {
+    margin-top: 10px;
+}
+
+.user-group-name {
+    font-weight: bold;
+}
+
+.user-group-description {
+    color: #555;
+}
+
+
+
+/* .user-groups-container {
+    margin-top: 20px;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+.user-group-box {
+    width: 250px;
+    margin: 0 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.user-group-link {
+    display: block;
+    text-decoration: none;
+    color: #333;
+}
+
+.user-group-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.user-group-details {
+    padding: 10px;
+}
+
+.user-group-name {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.user-group-description {
+    margin-top: 8px;
+    font-size: 0.9rem;
+}
+
+.new-group-section {
+    margin-top: 20px;
+    text-align: center;
+    list-style: none;
+} */
+
