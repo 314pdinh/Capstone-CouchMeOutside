@@ -4,9 +4,10 @@ import { Route, Switch } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
+import ProtectedRoute from './components/auth/ProtectedRoute';
 import Navigation from "./components/Navigation";
 import LandingPage from "./components/LandingPage/LandingPage";
-
+import AccountPage from "./components/AccountPage/TravelerDashboard";
 
 function App() {
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ function App() {
       {isLoaded && (
         <Switch>
           <Route exact path="/" component={LandingPage} />
+          <ProtectedRoute exact path="/account" component={AccountPage} />
           <Route path="/login" >
             <LoginFormPage />
           </Route>
