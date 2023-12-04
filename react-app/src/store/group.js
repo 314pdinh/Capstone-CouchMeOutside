@@ -4,6 +4,8 @@ const LOAD_SINGLE_GROUP = "journeyjournal/groups/LOAD_SINGLE_GROUP"
 
 const LOAD_USER_GROUPS = "journeyjournal/groups/LOAD_USER_GROUPS";
 
+const CREATE_GROUP = "journeyjournal/groups/CREATE_GROUP"
+
 // action creators ---------------------------------------------------
 
 export const loadAllGroupsAction = (groups) => {
@@ -31,7 +33,12 @@ export const loadUserGroupsAction = (groups) => {
   };
 };
 
-
+export const createGroupAction = (group) => {
+  return {
+    type: CREATE_GROUP,
+    payload: group
+  }
+}
 
 // thunk action creators ---------------------------
 
@@ -84,6 +91,23 @@ export const loadUserGroupsThunk = () => async (dispatch) => {
 };
 
 
+export const createGroupThunk = (formData) => async (dispatch) => {
+  console.log(`this is the formdata ${formData}`)
+  const res = await fetch("/api/groups/create", {
+    method: "POST",
+    body: formData
+  })
+
+  const groupData = await res.json();
+
+  if (res.ok) {
+    dispatch(createGroupAction(groupData));
+    return groupData;
+  } else {
+    return groupData.errors
+  }
+}
+
 // reducer----------------------------------------------------------------------------------------------------------
 const initialState = { allGroups: [], singleGroup: {}, groupMembers: {} };
 // --------------------------------------------------------------------------------------------------------
@@ -104,12 +128,20 @@ const groupsReducer = (state = initialState, action) => {
         ...state,
         singleGroup: action.group
       };
-    
+
     case LOAD_USER_GROUPS:
       return {
         ...state,
         allGroups: action.groups,
       };
+
+
+    case CREATE_GROUP:
+      newState = { ...state };
+      let newGroup = action.payload;
+      newState.allGroups[newGroup.id] = newGroup;
+      newState.singleGroup = newGroup;
+      return newState;
 
     default:
       return state;
