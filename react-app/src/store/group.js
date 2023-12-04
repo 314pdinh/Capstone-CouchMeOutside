@@ -5,6 +5,7 @@ const LOAD_SINGLE_GROUP = "journeyjournal/groups/LOAD_SINGLE_GROUP"
 const LOAD_USER_GROUPS = "journeyjournal/groups/LOAD_USER_GROUPS";
 
 const CREATE_GROUP = "journeyjournal/groups/CREATE_GROUP"
+const DELETE_GROUP = "journeyjournal/groups/DELETE_GROUP"
 
 // action creators ---------------------------------------------------
 
@@ -37,6 +38,13 @@ export const createGroupAction = (group) => {
   return {
     type: CREATE_GROUP,
     payload: group
+  }
+}
+
+export const deleteGroupAction = (groupId) => {
+  return {
+    type: DELETE_GROUP,
+    groupId
   }
 }
 
@@ -108,6 +116,28 @@ export const createGroupThunk = (formData) => async (dispatch) => {
   }
 }
 
+
+
+export const deleteGroupThunk = (groupId) => async (dispatch) => {
+  console.log('deleteGroupThunk startingggggg')
+  console.log('deleteGroupThunk ID', groupId)
+
+
+  const res = await fetch(`/api/groups/${groupId}/delete`, {
+    method: 'DELETE',
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+  if (res.ok) {
+    console.log('deleteGroupThunk success')
+    dispatch(deleteGroupAction(groupId))
+  } else {
+    const errors = await res.json();
+    return errors;
+  }
+}
+
 // reducer----------------------------------------------------------------------------------------------------------
 const initialState = { allGroups: [], singleGroup: {}, groupMembers: {} };
 // --------------------------------------------------------------------------------------------------------
@@ -141,6 +171,17 @@ const groupsReducer = (state = initialState, action) => {
       let newGroup = action.payload;
       newState.allGroups[newGroup.id] = newGroup;
       newState.singleGroup = newGroup;
+      return newState;
+
+
+    case DELETE_GROUP:
+      newState = {
+        ...state,
+        singleGroup: {
+          ...state.allGroups,
+        }
+      };
+      delete newState.allGroups[action.group];
       return newState;
 
     default:
