@@ -14,7 +14,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
     profile_picture = db.Column(db.String(250), nullable=False)
-    bio = db.Column(db.String(255), nullable=False)
+    bio = db.Column(db.String(400), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
     groups = db.relationship('GroupMember', back_populates='user', cascade='all, delete-orphan')

@@ -5,6 +5,7 @@ const LOAD_SINGLE_GROUP = "journeyjournal/groups/LOAD_SINGLE_GROUP"
 const LOAD_USER_GROUPS = "journeyjournal/groups/LOAD_USER_GROUPS";
 
 const CREATE_GROUP = "journeyjournal/groups/CREATE_GROUP"
+const UPDATE_GROUP = "journeyjournal/groups/UPDATE_GROUP"
 const DELETE_GROUP = "journeyjournal/groups/DELETE_GROUP"
 
 // action creators ---------------------------------------------------
@@ -38,6 +39,14 @@ export const createGroupAction = (group) => {
   return {
     type: CREATE_GROUP,
     payload: group
+  }
+}
+
+export const updateGroupAction = (group) => {
+  console.log('GROUPPPPPP updateGroupAction:', group);
+  return {
+    type: UPDATE_GROUP,
+    group
   }
 }
 
@@ -116,7 +125,26 @@ export const createGroupThunk = (formData) => async (dispatch) => {
   }
 }
 
+export const updateGroupThunk = (form) => async (dispatch) => {
+  console.log('Form data ---- updateGroupThunk:', form);
+  const groupId = form.get('groupId');
+  console.log('Group ID in updateGroupThunk:', groupId);
 
+  const res = await fetch(`/api/groups/${form.get('groupId')}/update`, {
+    method: 'PUT',
+    body: form,
+  });
+  const updatedGroup = await res.json();
+  if (res.ok) {
+    console.log('this is the updated group thunk data beforehand', updatedGroup)
+    dispatch(updateGroupAction(updatedGroup));
+    console.log('Updated Group ----- updateGroupThunk:', updatedGroup);
+    return updatedGroup;
+  } else {
+    console.error('Error updating group:', updatedGroup);
+    return updatedGroup
+  }
+}
 
 export const deleteGroupThunk = (groupId) => async (dispatch) => {
   console.log('deleteGroupThunk startingggggg')
@@ -173,6 +201,15 @@ const groupsReducer = (state = initialState, action) => {
       newState.singleGroup = newGroup;
       return newState;
 
+
+    case UPDATE_GROUP:
+      newState = {
+        ...state,
+        allGroups: {
+          ...state.allGroups,
+          [action.group.id]: action.group,
+        },
+      };
 
     case DELETE_GROUP:
       newState = {

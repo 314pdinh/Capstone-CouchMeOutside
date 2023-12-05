@@ -143,11 +143,11 @@ def update_group(groupId):
         group_to_update.group_description = form.data['group_description']
         
         group_image = form.data['group_image']
-        # if group_image:
-        #     group_image.filename = get_unique_filename(group_image.filename)
-        #     uploadGroupImage = upload_file_to_s3(group_image)
-        #     if 'url' in uploadGroupImage:
-        #         group.group_image = uploadGroupImage['url']
+        if group_image:
+            group_image.filename = get_unique_filename(group_image.filename)
+            uploadGroupImage = upload_file_to_s3(group_image)
+            if 'url' in uploadGroupImage:
+                group.group_image = uploadGroupImage['url']
         
         db.session.commit()
         print('UPDATED GROUPPPPPPPPP :', group_to_update.to_dict())
