@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { loadSingleGroupThunk } from "../../../store/group";
 import OpenModalButton from '../../OpenModalButton';
 import GroupManage from "../GroupManage/GroupManage";
+import { getAllUsersThunk } from '../../../store/user';
 
 import './GroupDetails.css';
 
@@ -25,7 +26,12 @@ const GroupDetails = () => {
         dispatch(loadSingleGroupThunk(groupId));
     }, [dispatch, groupId]);
 
+    const users = useSelector((state) => state.users.users);
+    useEffect(() => {
+        dispatch(getAllUsersThunk());
+    }, [dispatch]);
 
+    console.log('usersssss,----', users)
 
     console.log('groupID HEREEEE', groupId)
     console.log('ONE singleGroup:', singleGroup);
@@ -119,8 +125,7 @@ const GroupDetails = () => {
                         </div>
 
 
-                        <p>Members</p>
-                        <p className="note-description">{singleGroup.group.members}</p>
+                        
                         <h2>Activities</h2>
 
 
