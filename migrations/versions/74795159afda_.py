@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 092bbd1dc06e
+Revision ID: 74795159afda
 Revises: 
-Create Date: 2023-12-05 11:04:48.545935
+Create Date: 2023-12-05 11:14:32.842228
 
 """
 from alembic import op
@@ -12,7 +12,7 @@ import os
 environment = os.getenv("FLASK_ENV")
 SCHEMA = os.environ.get("SCHEMA")
 # revision identifiers, used by Alembic.
-revision = '092bbd1dc06e'
+revision = '74795159afda'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -65,7 +65,6 @@ def upgrade():
     if environment == "production":
         op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
         op.execute(f"ALTER TABLE groups SET SCHEMA {SCHEMA};")
-        op.execute(f"ALTER TABLE journals SET SCHEMA {SCHEMA};")
         op.execute(f"ALTER TABLE activities SET SCHEMA {SCHEMA};")
         op.execute(f"ALTER TABLE group_members SET SCHEMA {SCHEMA};")
 

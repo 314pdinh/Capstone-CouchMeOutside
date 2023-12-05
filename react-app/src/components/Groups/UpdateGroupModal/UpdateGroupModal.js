@@ -87,7 +87,7 @@ const GroupUpdateModal = ({ singleGroup }) => {
         <div className="update-wrapper">
             <h1>Update Group</h1>
             <form className="form-boxx" onSubmit={handleSubmit} encType="multipart/form-data">
-                <label htmlFor="journal-description">New Group Name</label>
+                <label htmlFor="group-description">New Group Name</label>
                 <input
                     type="text"
                     value={group_name}
