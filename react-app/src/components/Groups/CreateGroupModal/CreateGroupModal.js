@@ -67,25 +67,25 @@ const CreateGroupModal = () => {
     }, [group_name, group_description, group_image]);
 
     return (
-        <div className='journalcreateback'>
+        <div className='groupcreateback'>
             <div className='create-wrapper'>
-                <h1>Create a journal</h1>
+                <h1>Create a Group</h1>
                 {error.length
                     ? error.map((e, index) => <p key={index} className='create-error'>{e}</p>)
                     : null}
 
                 <form className='form-box' onSubmit={handleSubmit} encType='multipart/form-data'>
-                    <label htmlFor='journal-create-name'>Group Name <i style={{ color: 'red' }}>*</i></label>
+                    <label htmlFor='group-create-name'>Group Name <i style={{ color: 'red' }}>*</i></label>
                     <input
                         type='text'
                         value={group_name}
                         required
                         onChange={(e) => setGroup_name(e.target.value)}
-                        placeholder='What would you like to call this journal?'
+                        placeholder='What would you like to call this group?'
                     />
 
 
-                    <label htmlFor='journal-create-description'>Group Description <i style={{ color: 'red' }}>*</i></label>
+                    <label htmlFor='group-create-description'>Group Description <i style={{ color: 'red' }}>*</i></label>
                     <input
                         type='text'
                         value={group_description}
@@ -95,7 +95,7 @@ const CreateGroupModal = () => {
                     />
 
 
-                    <label htmlFor='journal-create-image'>New Group Image <i style={{ color: 'red' }}>*</i></label>
+                    <label htmlFor='group-create-image'>New Group Image <i style={{ color: 'red' }}>*</i></label>
                     <input
                         type='file'
                         name='group-form-group-image'
