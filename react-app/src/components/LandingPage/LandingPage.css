@@ -77,8 +77,3 @@
 .landing-img-three {
     border-radius: 10px;
 }
-
-.typedText{
-    text-transform: capitalize;
-    color: var(--text-color-third);
-}

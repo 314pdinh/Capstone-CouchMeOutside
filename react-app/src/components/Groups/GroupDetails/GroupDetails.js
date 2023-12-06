@@ -9,9 +9,10 @@ import './GroupDetails.css';
 
 import { getAllUsersThunk } from '../../../store/user';
 
+// Activities
+import ActivityManage from "../../Activity/ActivityManage/ActivityManage";
+import AddGroupActivityModal from "../../Activity/CreateActivity/CreateActivity";
 
-const defaultImage =
-    "https://t4.ftcdn.net/jpg/04/00/24/31/360_F_400243185_BOxON3h9avMUX10RsDkt3pJ8iQx72kS3.jpg";
 
 const GroupDetails = () => {
     const { groupId } = useParams();
@@ -139,7 +140,10 @@ const GroupDetails = () => {
                         <div className="activities-section-group">
 
                             <h2>Activities</h2>
-                         
+                            <OpenModalButton
+                                buttonText="Add an Activity"
+                                modalComponent={<AddGroupActivityModal group={singleGroup && singleGroup.group && singleGroup.group} />}
+                            />
 
 
                          
@@ -159,7 +163,13 @@ const GroupDetails = () => {
                                         <div className="activity-card-contents">
                                             <h3>{activity.activity_name}</h3>
                                             <p>{activity.activity_description}</p>
-                                          
+                                            {userId === activity.owner_id ? (
+                                                <OpenModalButton
+                                                    modalComponent={<ActivityManage id={activity.id} groupId={groupId} activity={activity} />}
+                                                    buttonText="&#x2699; Settings"
+                                                    className={"server-emoji-button"}
+                                                />
+                                            ) : null}
 
 
 
