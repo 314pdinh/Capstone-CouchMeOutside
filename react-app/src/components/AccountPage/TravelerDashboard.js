@@ -68,8 +68,8 @@ const AccountPage = () => {
                         </Carousel>
                     </div>
 
-                    <h3 className="section-title" style={{ textTransform: 'capitalize' }}>{user.username}</h3>
-                    <p className="info-item">Email: {user.email}</p>
+                    <h2 className="section-title" style={{ textTransform: 'capitalize' }}>{user.username}</h2>
+                    <h3 className="info-item">{user.email}</h3>
 
                     <div className="account-page-container">
 
@@ -110,7 +110,7 @@ const AccountPage = () => {
 
                         <div className="new-group-section">
                             <h1>New Group?</h1>
-                            <li className="account-create-group-modal">
+                            <li className="create-button">
 
                                 <OpenModalButton
                                     modalComponent={<CreateGroupModal title="Create Group" />}

@@ -24,7 +24,7 @@ function App() {
       {isLoaded && (
         <Switch>
           <Route exact path="/" component={LandingPage} />
-          <Route path="/travelers" component={TravelersProfile} />
+          <ProtectedRoute path="/travelers" component={TravelersProfile} />
           <ProtectedRoute exact path="/account" component={AccountPage} />
           <ProtectedRoute exact path="/groups/:groupId" component={GroupDetails} />
           <Route path="/login" >

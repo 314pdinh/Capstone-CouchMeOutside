@@ -25,9 +25,9 @@ function Navigation({ isLoaded }) {
 					<div className='header-right-nav'>
 						<ul className='nav-links'>
 							<li className="nav-item">
-								{/* <NavLink exact to="/journals" activeClassName="active-link">
-									Journals
-								</NavLink> */}
+								<NavLink exact to="/travelers" activeClassName="active-link">
+									Travelers
+								</NavLink>
 							</li>
 							<li className="nav-item">
 								<NavLink exact to="/account" activeClassName="active-link">

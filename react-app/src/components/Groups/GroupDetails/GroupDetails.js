@@ -105,7 +105,7 @@ const GroupDetails = () => {
                             <div className="add-member">
                                 <h2>Members</h2>
 
-                                
+
                             </div>
 
                             <div className="members">
@@ -129,7 +129,7 @@ const GroupDetails = () => {
                                                 return null;
                                             })}
 
-                                        
+
                                         </div>
                                     </div>
                                 ))}
@@ -140,13 +140,14 @@ const GroupDetails = () => {
                         <div className="activities-section-group">
 
                             <h2>Activities</h2>
-                            <OpenModalButton
-                                buttonText="Add an Activity"
-                                modalComponent={<AddGroupActivityModal group={singleGroup && singleGroup.group && singleGroup.group} />}
-                            />
+                            <div className="create-button">
+                                <OpenModalButton
+                                    buttonText="Add an Activity"
+                                    modalComponent={<AddGroupActivityModal group={singleGroup && singleGroup.group && singleGroup.group} />}
+                                />
+                            </div>
 
 
-                         
 
                             <div className="group-activities-list">
                                 {singleGroup.group.activities.map((activity, index) => (

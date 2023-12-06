@@ -4,13 +4,19 @@
     padding: 50px;
 }
 
+.account-outer-container h2 {
+    font-size: 24px;
+    letter-spacing: 0.05rem;
+    color: #003E6B;
+}
+
 .account-page-container {
     display: flex;
     flex-direction: row;
 }
 
 .user-info-section {
-    background-color: rgb(192, 217, 255);
+    background-color: #DCEEFB;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,16 +27,27 @@
     top: 100px;
     width: 25%;
     border: 2px solid grey;
+    box-shadow: inset 0 6px 2px hsla(0, 0%, 0%, 0.1);
+}
+
+.user-info-section h2 {
+    font-size: 24px;
+    color: #102A43;
+    margin-bottom: 5px;
 }
 
 .user-info-section h3 {
-    font-size: 40px;
-    color: rgb(38, 67, 122);
+    color: #243B53;
+}
+
+.users-bio p {
+    text-align: left;
+    color: #243B53;
 }
 
 .user-info-section p {
-    font-size: 20px;
-    color: rgb(38, 67, 122);
+    font-size: 14px;
+    color: #243B53;
 }
 
 .section-title,
@@ -74,9 +91,16 @@
 /* Groups */
 
 .user-groups-container {
-    margin-top: 50px;
-    padding: 20px;
+    padding: 0 20px 20px;
     background-color: azure;
+    /* box-shadow: inset 0 2px 2px hsla(0, 0%, 0%, 0.1); */
+    border: 1px solid rgb(233, 233, 233);
+}
+
+.user-groups-container h3 {
+    color: #102A43;
+    font-size: 16px;
+    
 }
 
 .users-groups-boxes {
@@ -92,6 +116,8 @@
     padding: 10px;
     width: 20%;
     height: fit-content;
+    box-shadow: inset 0 2px 2px hsla(0, 0%, 0%, 0.1);
+
 }
 
 .user-group-link {
@@ -108,6 +134,12 @@
     margin-top: 10px;
 }
 
+.user-group-details p {
+    font-weight: 700;
+    color: #334E68;
+}
+
+
 .user-group-name {
     font-weight: bold;
 }
@@ -121,12 +153,13 @@
     padding: 10px;
 }
 
+.new-group-section h1 {
+    color: #102A43;
+}
+
 .account-create-group-modal button {
     color: white;
     background-color: #2f97ff;
-    padding: 10px;
-    border: none;
-    border-radius: 8px;
 }
 
 .account-create-group-modal button:hover {
