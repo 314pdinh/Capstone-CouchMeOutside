@@ -1,38 +1,40 @@
 .travelers-profile-container {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 20px;
 }
 
 .user-list {
     list-style: none;
+    margin: 0;
     padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .user-item {
-    display: flex;
-    align-items: center;
-    border: 1px solid #ccc;
-    margin-bottom: 10px;
-    padding: 10px;
+    width: 300px;
+    margin: 15px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
-.user-avatar {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 10px;
+.user-item img {
+    width: 100%;
 }
 
-.user-details {
-    flex: 1;
-}
-
-.user-username {
-    font-size: 1.2em;
+.user-item h3 {
+    font-size: 2em;
     margin-bottom: 5px;
+    color: rgb(32, 54, 110);
+
 }
 
-.user-email,
-.user-bio {
+.user-item p {
     margin: 0;
+    color: rgb(32, 54, 110);
 }

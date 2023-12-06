@@ -1,22 +1,22 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link, useHistory } from "react-router-dom";
 import { loadUserGroupsThunk } from '../../store/group';
 import CreateGroupModal from "../Groups/CreateGroupModal/CreateGroupModal";
 import OpenModalButton from '../OpenModalButton';
 import './TravelerDashboard.css'
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
+
 
 // import { logout } from "../../store/session";
 
+import { Link, useHistory } from "react-router-dom";
 
 const AccountPage = () => {
     const dispatch = useDispatch();
     const user = useSelector((state) => state.session.user);
     console.log('this is the user', user)
-
     const allGroups = useSelector((state) => state.groups.allGroups);
-
-   
 
     const userOwnedGroups = Object.values(allGroups).filter(
         (group) => group.owner_id === user.id
@@ -26,7 +26,14 @@ const AccountPage = () => {
         (group) => Array.isArray(group.members) && group.members.includes(user.username)
     );
 
-    const userGroups = [...userOwnedGroups, ...userMemberGroups];
+    // const userGroups = [...userOwnedGroups, ...userMemberGroups];
+    const userGroupsObj = [...userOwnedGroups, ...userMemberGroups].reduce((account, group) => {
+        account[group.id] = group;
+        return account;
+    }, {});
+
+    const userGroups = Object.values(userGroupsObj);
+
 
     const userId = user.id;
 
@@ -39,27 +46,33 @@ const AccountPage = () => {
     console.log('allGroups:', allGroups);
     console.log('userGrops:', userGroups);
 
-
-
     if (!allGroups) return null;
 
     return (
         <div className="account-outer-container">
             <h2>Welcome to Your Story, @{user.username}!</h2>
             <div className="account-page-container">
-                <div className="user-info-section">
-                    <div className="account-page-left">
 
-                        <h3 className="section-title">Traveler</h3>
-                        <div className="profile-picture-container">
-                            <img className="profile-picture" src={user.profilePic} alt="Profile" />
-                        </div>
-                        <p>{user.username}</p>
-                        <p className="info-item">Email: {user.email}</p>
+                <div className="user-info-section">
+                    <div className="images-carousel">
+                        <Carousel>
+                            <div className="profile-picture-container">
+                                <img className="profile-picture" src={user.profilePic} alt="Profile" />
+                            </div>
+                            <div className="profile-picture-container">
+                                <img className="profile-picture" src={user.profile_img1} alt="Profile" />
+                            </div>
+                            <div className="profile-picture-container">
+                                <img className="profile-picture" src={user.profile_img2} alt="Profile" />
+                            </div>
+                        </Carousel>
                     </div>
 
+                    <h3 className="section-title" style={{ textTransform: 'capitalize' }}>{user.username}</h3>
+                    <p className="info-item">Email: {user.email}</p>
+
                     <div className="account-page-container">
-                     
+
                         <div className="users-bio">
                             <p>{user.bio}</p>
                         </div>
@@ -71,10 +84,8 @@ const AccountPage = () => {
 
                 <div className="users-content-account">
 
-
-
                     <div className="user-groups-container">
-                        <h3>Your Groups:</h3>
+                        <h3>Your Group(s):</h3>
                         {userGroups.length === 0 ? (
                             <p>You have not added any groups yet.</p>
                         ) : (
@@ -98,8 +109,8 @@ const AccountPage = () => {
                         )}
 
                         <div className="new-group-section">
-                            <h1>New Group</h1>
-                            <li className="">
+                            <h1>New Group?</h1>
+                            <li className="account-create-group-modal">
 
                                 <OpenModalButton
                                     modalComponent={<CreateGroupModal title="Create Group" />}

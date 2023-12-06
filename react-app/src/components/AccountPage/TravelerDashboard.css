@@ -10,7 +10,7 @@
 }
 
 .user-info-section {
-    background-color: rgb(91, 119, 209);
+    background-color: rgb(192, 217, 255);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,11 +18,28 @@
     height: fit-content;
     padding: 30px;
     position: sticky;
-    top: 100px; 
+    top: 100px;
     width: 25%;
+    border: 2px solid grey;
 }
 
-.user-info-section .profile-picture {
+.user-info-section h3 {
+    font-size: 40px;
+    color: rgb(38, 67, 122);
+}
+
+.user-info-section p {
+    font-size: 20px;
+    color: rgb(38, 67, 122);
+}
+
+.section-title,
+.info-item {
+    margin: 0;
+}
+
+
+.user-info-section .carousel {
     width: 150px;
     height: auto;
     /* border-radius: 50%; */
@@ -35,6 +52,23 @@
     padding: 20px;
 }
 
+
+.carousel {
+    margin: auto;
+}
+
+.profile-picture-container img {
+    /* height: 300px;
+    width: fit-content; */
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+}
+
+.thumb {
+    height: 1px;
+    width: 1px;
+}
 
 
 /* Groups */
@@ -82,7 +116,22 @@
     color: #555;
 }
 
+.account-create-group-modal {
+    list-style: none;
+    padding: 10px;
+}
 
+.account-create-group-modal button {
+    color: white;
+    background-color: #2f97ff;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+}
+
+.account-create-group-modal button:hover {
+    background-color: #154d91;
+}
 
 /* .user-groups-container {
     margin-top: 20px;
@@ -131,4 +180,3 @@ h3 {
     text-align: center;
     list-style: none;
 } */
-
