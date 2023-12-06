@@ -18,10 +18,10 @@ function AddGroupActivityModal({ group }) {
 
         if (!activity_name.length || activity_name.length < 5 || activity_name.length > 35)
             newErrors.push('Name must be between 5 and 35 characters');
-        
+
         if (!activity_description.length || activity_description.length < 25 || activity_description.length > 255)
             newErrors.push("Activity's description must be between 25 and 255 characters");
-        
+
         if (!activity_image)
             newErrors.push('Please add an image');
         if (newErrors.length) {
@@ -69,7 +69,7 @@ function AddGroupActivityModal({ group }) {
 
                     <label htmlFor='journal-create-description'>Activity Description <i style={{ color: 'red' }}>*</i></label>
                     <input
-                        type='text'
+                        type='textarea'
                         value={activity_description}
                         required
                         onChange={(e) => setActivity_description(e.target.value)}
@@ -86,13 +86,17 @@ function AddGroupActivityModal({ group }) {
                         accept='image/*'
                     />
 
-                    <button
-                        className=''
-                        id='activity-form-submit-button'
-                        type='submit'
+                    <div className='create-button'
                     >
-                        Create Activity
-                    </button>
+
+                        <button
+                            className='create-button'
+                            id='activity-form-submit-button'
+                            type='submit'
+                        >
+                            Create Activity
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>

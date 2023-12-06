@@ -1,1 +1,33 @@
 /* TODO Add site wide styles */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #F0F4F8;
+}
+
+* {
+    font-size: 100%;
+    font-family: Ubuntu;
+   }
+
+button {
+    cursor: pointer;
+    font-size: 14px;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: inset 0 2px 2px hsla(0, 0%, 0%, 0.1)
+}
+
+.create-button {
+    list-style: none;
+    /* background-color: red; */
+}
+
+.create-button button{
+    background-color: #2DCCA7;
+}
+
+.create-button button:hover{
+    background-color: #079A82;
+}

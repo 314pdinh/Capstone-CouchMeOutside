@@ -14,7 +14,7 @@ const LandingPage = () => {
         <div className='landing-page-box'>
             <div className='landing-page-left-box'>
                 <div className='landing-titles'>
-                    <h1 className='landing-h1'>CouchMeOutside</h1>
+                    {/* <h1 className='landing-h1'>CouchMeOutside</h1> */}
                     <h2 className='landing-h21'>Come curious,</h2>
                     <h2 className='landing-h22'>document your travel,</h2>
                     <h2 className='landing-h23'>share memories, </h2>
@@ -26,10 +26,10 @@ const LandingPage = () => {
             <div className='landing-page-right-box'>
 
                 <div className='landing-page-left-img'>
-                    <NavLink to="/travelers">
+                    {/* <NavLink to="/travelers"> */}
                         <img className='landing-img-one' src={planeIMG} alt='img' />
-                        Meet other travelers
-                    </NavLink>
+                        {/* Meet other travelers
+                    </NavLink> */}
                     <img className='landing-img-two' src={disneyIMG} alt='img' />
                 </div>
 

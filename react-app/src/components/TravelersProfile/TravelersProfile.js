@@ -41,7 +41,7 @@ const TravelersProfile = () => {
                         </div>
 
                         <h3 className="" style={{textTransform: 'capitalize'}}>{user.username}</h3>
-                        <p className="">Email: {user.email}</p>
+                        <h4 className="">{user.email}</h4>
 
                         <div className="">
 

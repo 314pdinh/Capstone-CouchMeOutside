@@ -16,11 +16,11 @@
 }
 
 .landing-h1 {
-    font-size: 100px;
+    font-size: 24px;
 }
 
 .landing-titles h2 {
-    font-size: 60px;
+    font-size: 48px;
 }
 
 /* .landing-h21 {
@@ -58,7 +58,9 @@
     align-items: center;
 }
 
-.landing-img-one, .landing-img-two, .landing-img-three {
+.landing-img-one,
+.landing-img-two,
+.landing-img-three {
     max-width: 100%;
     max-height: 100%;
 }

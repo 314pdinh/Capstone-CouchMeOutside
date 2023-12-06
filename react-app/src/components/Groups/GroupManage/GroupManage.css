@@ -9,11 +9,7 @@
 
 .manage-container-group button {
     margin: 10px;
-    padding: 5px;
-    border: none;
-    border-radius: 5px;
     color: white;
-    cursor: pointer;
 }
 
 #delete-group button {

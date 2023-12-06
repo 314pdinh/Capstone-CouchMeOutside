@@ -25,7 +25,7 @@ const CreateGroupModal = () => {
 
         if (!group_description.length || group_description.length < 25 || group_description.length > 255)
             newErrors.push("Group's description must be between 25 and 255 characters");
-        
+
         if (!group_image)
             newErrors.push('Please add an image');
         if (newErrors.length) {
@@ -73,7 +73,7 @@ const CreateGroupModal = () => {
 
                     <label htmlFor='group-create-description'>Group Description <i style={{ color: 'red' }}>*</i></label>
                     <input
-                        type='text'
+                        type='textarea'
                         value={group_description}
                         required
                         onChange={(e) => setGroup_description(e.target.value)}
@@ -89,14 +89,16 @@ const CreateGroupModal = () => {
                         onChange={(e) => setGroup_image(e.target.files[0])}
                         accept='image/*'
                     />
-
-                    <button
-                        className='submit-new-group'
-                        id='group-form-submit-button'
-                        type='submit'
+                    <div className='create-button'
                     >
-                        Create Group
-                    </button>
+                        <button
+                            id='group-form-submit-button'
+                            type='submit'
+                        >
+                            Create Group
+                        </button>
+
+                    </div>
                 </form>
             </div>
         </div>
