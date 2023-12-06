@@ -11,8 +11,7 @@ const GroupUpdateModal = ({ singleGroup }) => {
     const [group_name, setGroup_name] = useState(singleGroup.group.group_name);
     const [group_description, setGroup_description] = useState(singleGroup.group.group_description);
     const [group_image, setGroup_image] = useState();
-    const [error, setError] = useState(null);
-    const [disableButton, setDisableButton] = useState(true);
+    const [error, setError] = useState([]);
     const user = useSelector((state) => state.session.user);
 
 
@@ -26,15 +25,14 @@ const GroupUpdateModal = ({ singleGroup }) => {
 
         const newErrors = [];
 
-        if (!group_name.length || group_name.length > 255)
-            newErrors.push('Name must be between 1 and 255 characters');
+        if (!group_name.length || group_name.length < 5 || group_name.length > 35)
+            newErrors.push('Name must be between 5 and 35 characters');
 
-        if (!group_description.length || group_description.length > 255)
-            newErrors.push("Group's description must be between 1 and 255 characters");
+        if (!group_description.length || group_description.length < 25 || group_description.length > 255)
+            newErrors.push("Group's description must be between 25 and 255 characters");
 
         if (newErrors.length) {
             setError(newErrors);
-            setDisableButton(true);
             return;
         }
 
@@ -68,18 +66,6 @@ const GroupUpdateModal = ({ singleGroup }) => {
     };
 
 
-    useEffect(() => {
-        setDisableButton(false);
-        const newErrors = [];
-        if (!group_name.length || group_name.length > 255)
-            newErrors.push('Name must be between 1 and 255 characters');
-
-        if (!group_description.length || group_description.length > 255)
-            newErrors.push('Description for group must be between 1 and 255 characters');
-
-        if (newErrors.length) setDisableButton(true);
-    }, [group_name, group_description]);
-
 
     if (!singleGroup) return null;
 
@@ -87,6 +73,12 @@ const GroupUpdateModal = ({ singleGroup }) => {
         <div className="update-wrapper">
             <h1>Update Group</h1>
             <form className="form-boxx" onSubmit={handleSubmit} encType="multipart/form-data">
+                <ul>
+                    {error.map((e, idx) => (
+                        <li key={idx}>{e}</li>
+                    ))}
+                </ul>
+
                 <label htmlFor="group-description">New Group Name</label>
                 <input
                     type="text"
@@ -109,7 +101,7 @@ const GroupUpdateModal = ({ singleGroup }) => {
                 ></input>
 
 
-                <button type="submit" className="updbtn" disabled={disableButton}>
+                <button type="submit" className="updbtn">
                     Update Group
                 </button>
             </form>

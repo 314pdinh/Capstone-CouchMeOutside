@@ -76,6 +76,23 @@ def sign_up():
             return  uploadProfileImage, 400
         else:
             user.profile_picture = uploadProfileImage['url']
+            
+        profile_img1=form.data['profile_img1']
+        profile_img1.filename = get_unique_filename(profile_img1.filename)
+        uploadProfileImage1 = upload_file_to_s3(profile_img1)
+        if 'url' not in uploadProfileImage1:
+            return  uploadProfileImage1, 400
+        else:
+            user.profile_img1 = uploadProfileImage1['url']
+            
+        profile_img2=form.data['profile_img2']
+        profile_img2.filename = get_unique_filename(profile_img2.filename)
+        uploadProfileImage2 = upload_file_to_s3(profile_img2)
+        if 'url' not in uploadProfileImage2:
+            return  uploadProfileImage2, 400
+        else:
+            user.profile_img2 = uploadProfileImage2['url']
+            
         db.session.add(user)
         db.session.commit()
         login_user(user)
