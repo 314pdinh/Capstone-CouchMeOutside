@@ -1,0 +1,62 @@
+.mainContainer {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.add-member-header {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* .add-member-input {
+    position: relative;
+} */
+
+.add-member-input input {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.user {
+    width: 80%;
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.user:hover {
+    background-color: #f0f0f0;
+}
+
+.highlighted {
+    background-color: #e0e0e0;
+}
+
+.error {
+    color: red;
+}
+
+.signUpButton {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.signUpButton:hover {
+    background-color: #0056b3;
+}

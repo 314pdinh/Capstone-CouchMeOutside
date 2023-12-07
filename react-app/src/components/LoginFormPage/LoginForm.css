@@ -38,3 +38,15 @@
 .login-page-form button:hover {
     background-color: #0056b3;
 }
+
+.login-page-form li {
+    text-decoration: none;
+}
+
+.sign-up-link {
+    list-style: none;
+    background-color: rgb(222, 222, 81);
+    padding: 8px 12px;
+    width: fit-content;
+    border-radius: 10px;
+}

@@ -51,8 +51,8 @@ const CreateGroupModal = () => {
     };
 
     return (
-        <div className='groupcreateback'>
-            <div className='create-group-wrapper'>
+        <div className='activity-create-wrapper'>
+            <div className='create-wrapper'>
                 <h1>Create a Group</h1>
                 <ul>
                     {error.map((e, idx) => (
@@ -60,7 +60,7 @@ const CreateGroupModal = () => {
                     ))}
                 </ul>
 
-                <form className='group-form-box' onSubmit={handleSubmit} encType='multipart/form-data'>
+                <form className='form-box' onSubmit={handleSubmit} encType='multipart/form-data'>
                     <label htmlFor='group-create-name'>Group Name <i style={{ color: 'red' }}>*</i></label>
                     <input
                         type='text'

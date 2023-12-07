@@ -10,6 +10,7 @@ import LandingPage from "./components/LandingPage/LandingPage";
 import AccountPage from "./components/AccountPage/TravelerDashboard";
 import GroupDetails from "./components/Groups/GroupDetails/GroupDetails";
 import TravelersProfile from "./components/TravelersProfile/TravelersProfile";
+import Footer from './components/Footer/Footer';
 
 function App() {
   const dispatch = useDispatch();
@@ -35,6 +36,7 @@ function App() {
           </Route>
         </Switch>
       )}
+      <Footer/>
     </>
   );
 }

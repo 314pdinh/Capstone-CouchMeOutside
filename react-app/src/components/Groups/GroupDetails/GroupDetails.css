@@ -44,12 +44,12 @@
     padding: 10px 50px;
 }
 
-.group-manage-modal-owner button {
+.manage-modal-owner button {
     background-color: grey;
     color: white;
 }
 
-.group-manage-modal-owner button:hover {
+.manage-modal-owner button:hover {
     background-color: rgb(84, 97, 149)
 }
 
@@ -121,6 +121,7 @@
     height: 300px;
     padding: 20px;
     border-radius: 30px;
+    object-fit: cover;
 }
 
 .group-activities-list {

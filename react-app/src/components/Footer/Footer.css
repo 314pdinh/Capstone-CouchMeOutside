@@ -1,0 +1,49 @@
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #131A22;
+    color: white;
+    padding: 50px 200px;
+}
+
+.footer-logo {
+    width: 100px;
+    height: auto;
+}
+
+#footer-center {
+    text-align: center;
+}
+
+.githubs a,
+.linkedins a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+    padding: 5px;
+}
+
+.githubs i,
+.linkedins i {
+    margin-right: 5px;
+    transition: transform 0.3s ease;
+}
+
+.githubs i:hover,
+.linkedins i:hover {
+    transform: rotateY(180deg);
+}
+
+.githubs a:hover,
+.linkedins a:hover {
+    text-decoration: underline;
+    opacity: 0.7;
+}
+
+#linkedin-links, #github-links {
+    display: flex;
+    flex-direction: column;
+}

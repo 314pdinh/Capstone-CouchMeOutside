@@ -5,27 +5,32 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-shadow: inset 0 10px 2px hsla(0, 0%, 0%, 0.1);
 }
 
 .manage-container-group button {
     margin: 10px;
+}
+
+.manage-buttons-format {
+    display: flex;
+    flex-direction: row;
+}
+
+.update-button button {
+    background-color: #2680C2;
     color: white;
 }
 
-#delete-group button {
-    background-color: red;
+.update-button button:hover {
+    background-color: #0F609B;
 }
 
-#delete-group button:hover {
-    background-color: #b5bac1;
-    color: rgb(163, 40, 40);
+.delete-button button {
+    background-color: #A61B1B;
+    color: white;
 }
 
-#update-group button {
-    background-color: #a7dcff;
-}
-
-#update-group button:hover {
-    background-color: rgb(167, 220, 255);
-    color: black;
+.delete-button button:hover {
+    background-color: #780A0A;
 }

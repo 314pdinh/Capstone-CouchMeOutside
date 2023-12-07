@@ -86,8 +86,17 @@ const AccountPage = () => {
 
                     <div className="user-groups-container">
                         <h3>Your Group(s):</h3>
+
+                        <li className="create-button">
+                            <OpenModalButton
+                                modalComponent={<CreateGroupModal title="Create Group" />}
+                                buttonText="Create Group"
+                                className="open-create-server"
+                            />
+                        </li>
+
                         {userGroups.length === 0 ? (
-                            <p>You have not added any groups yet.</p>
+                            <p>You have not created any group or part of any group yet.</p>
                         ) : (
                             <div className="users-groups-boxes">
 
@@ -107,19 +116,6 @@ const AccountPage = () => {
                             </div>
 
                         )}
-
-                        <div className="new-group-section">
-                            <h1>New Group?</h1>
-                            <li className="create-button">
-
-                                <OpenModalButton
-                                    modalComponent={<CreateGroupModal title="Create Group" />}
-                                    buttonText="Create Group"
-                                    className="open-create-server"
-                                />
-
-                            </li>
-                        </div>
                     </div>
 
                 </div>
