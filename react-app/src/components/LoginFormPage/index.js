@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { login } from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, NavLink } from "react-router-dom";
 import './LoginForm.css';
 
 function LoginFormPage() {
@@ -49,6 +49,13 @@ function LoginFormPage() {
           />
         </label>
         <button type="submit">Log In</button>
+
+        <li className="sign-up-link">
+          <NavLink exact to="/signup" activeClassName="active-link">
+            Don't have an account? Sign up
+          </NavLink>
+        </li>
+
       </form>
     </div>
   );

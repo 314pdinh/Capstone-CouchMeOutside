@@ -13,6 +13,8 @@ import { getAllUsersThunk } from '../../../store/user';
 import ActivityManage from "../../Activity/ActivityManage/ActivityManage";
 import AddGroupActivityModal from "../../Activity/CreateActivity/CreateActivity";
 
+import AddMemberModal from '../../Member/AddMemberModal/AddMemberModal';
+import DeleteMemberModal from '../../Member/RemoveMemberModal/RemoveMemberModal'
 
 const GroupDetails = () => {
     const { groupId } = useParams();
@@ -83,7 +85,7 @@ const GroupDetails = () => {
                                             {singleGroup.group.group_name}
                                         </h1>
                                         <h2 className="note-description">{singleGroup.group.group_description}</h2>
-                                        <div className="group-manage-modal-owner">
+                                        <div className="manage-modal-owner">
                                             {isOwner && (
                                                 <OpenModalButton
                                                     modalComponent={<GroupManage singleGroup={singleGroup} />}
@@ -105,7 +107,17 @@ const GroupDetails = () => {
                             <div className="add-member">
                                 <h2>Members</h2>
 
+                                <div className="create-button">
 
+                                    {isOwner && (
+                                        <OpenModalButton
+                                            buttonText="Add Member"
+                                            modalComponent={
+                                                <AddMemberModal group={singleGroup && singleGroup.group && singleGroup.group} users={users} />
+                                            }
+                                        />
+                                    )}
+                                </div>
                             </div>
 
                             <div className="members">
@@ -130,6 +142,22 @@ const GroupDetails = () => {
                                             })}
 
 
+                                            {user &&
+                                                user.id === singleGroup.group.owner_id &&
+                                                user.username !== member && (
+                                                    <div className="delete-button">
+                                                        {console.log('Condition met. Rendering DeleteMemberModal.')}
+                                                        <OpenModalButton
+                                                            buttonText={"Remove Member"}
+                                                            modalComponent={
+                                                                <DeleteMemberModal
+                                                                    group={singleGroup && singleGroup.group && singleGroup.group}
+                                                                    member={member}
+                                                                />
+                                                            }
+                                                        />
+                                                    </div>
+                                                )}
                                         </div>
                                     </div>
                                 ))}
@@ -142,7 +170,7 @@ const GroupDetails = () => {
                             <h2>Activities</h2>
                             <div className="create-button">
                                 <OpenModalButton
-                                    buttonText="Add an Activity"
+                                    buttonText="Add Activity"
                                     modalComponent={<AddGroupActivityModal group={singleGroup && singleGroup.group && singleGroup.group} />}
                                 />
                             </div>
@@ -164,15 +192,17 @@ const GroupDetails = () => {
                                         <div className="activity-card-contents">
                                             <h3>{activity.activity_name}</h3>
                                             <p>{activity.activity_description}</p>
-                                            {userId === activity.owner_id ? (
-                                                <OpenModalButton
-                                                    modalComponent={<ActivityManage id={activity.id} groupId={groupId} activity={activity} />}
-                                                    buttonText="&#x2699; Settings"
-                                                    className={"server-emoji-button"}
-                                                />
-                                            ) : null}
+                                            <div className="manage-modal-owner">
 
+                                                {userId === activity.owner_id ? (
+                                                    <OpenModalButton
+                                                        modalComponent={<ActivityManage id={activity.id} groupId={groupId} activity={activity} />}
+                                                        buttonText="&#x2699; Settings"
+                                                        className={"server-emoji-button"}
+                                                    />
+                                                ) : null}
 
+                                            </div>
 
                                         </div>
 

@@ -8,6 +8,8 @@ const CREATE_GROUP = "journeyjournal/groups/CREATE_GROUP"
 const UPDATE_GROUP = "journeyjournal/groups/UPDATE_GROUP"
 const DELETE_GROUP = "journeyjournal/groups/DELETE_GROUP"
 
+const ADD_MEMBER = "/group/members/ADD_MEMBER";
+const DELETE_MEMBER = "/group/members/DELETE_MEMBER";
 // action creators ---------------------------------------------------
 
 export const loadAllGroupsAction = (groups) => {
@@ -56,6 +58,20 @@ export const deleteGroupAction = (groupId) => {
     groupId
   }
 }
+
+export const addMember = (groupMember) => {
+  return {
+    type: ADD_MEMBER,
+    groupMember,
+  };
+};
+
+export const deleteMember = (groupMember) => {
+  return {
+    type: DELETE_MEMBER,
+    groupMember
+  };
+};
 
 // thunk action creators ---------------------------
 
@@ -166,6 +182,72 @@ export const deleteGroupThunk = (groupId) => async (dispatch) => {
   }
 }
 
+
+export const addMemberThunk = (groupId, username) => async (dispatch) => {
+  try {
+    console.log('addingMember thunk starting')
+    console.log('groupID member thunk', groupId)
+    console.log('memberThunk userNAMEE', username)
+
+
+    const response = await fetch(`/api/groups/${groupId}/members`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: username,
+      }),
+    });
+
+    console.log("memberthunks ", response)
+    if (response.ok) {
+      console.log("adding member success")
+      const data = await response.json();
+
+      console.log("memberThunk", data)
+ 
+
+    } else {
+      const errorMessage = await response.text();
+      console.log("adding member fail")
+      throw new Error(errorMessage);
+    }
+  } catch (error) {
+    console.error("Error adding member:", error);
+
+  }
+};
+
+export const deleteMemberThunk = (groupId, username) => async (dispatch) => {
+
+  console.log('delete Member Thunk groupID', groupId)
+  console.log('delete Member Thunk USERNAME', username)
+  console.log('deletingMember thunk starting')
+
+
+  const res = await fetch(`/api/groups/${groupId}/members`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      username: username,
+    }),
+  });
+
+  if (res.ok) {
+    console.log('sucessful delete member thunk')
+    const data = await res.json();
+    console.log('sucessful delete member thunk DATAAA', data)
+    return data;
+
+  } else {
+    const errors = await res.json();
+    return errors;
+  }
+};
+
 // reducer----------------------------------------------------------------------------------------------------------
 const initialState = { allGroups: [], singleGroup: {}, groupMembers: {} };
 // --------------------------------------------------------------------------------------------------------
@@ -220,6 +302,20 @@ const groupsReducer = (state = initialState, action) => {
       };
       delete newState.allGroups[action.group];
       return newState;
+
+    case ADD_MEMBER:
+      return {
+        ...state,
+        groupMembers: action.groupMembers,
+      };
+
+    case DELETE_MEMBER:
+      const newMemberState = {
+        ...state,
+        groupMembers: { ...state.groupMembers },
+      };
+      delete newMemberState.groupMembers[action.id];
+      return newMemberState;
 
     default:
       return state;

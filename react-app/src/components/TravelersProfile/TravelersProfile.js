@@ -45,7 +45,7 @@ const TravelersProfile = () => {
 
                         <div className="">
 
-                            <div className="">
+                            <div className="user-item-bio-p">
                                 <p>{user.bio}</p>
                             </div>
                         </div>

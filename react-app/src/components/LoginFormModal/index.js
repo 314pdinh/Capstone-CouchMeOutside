@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { login } from "../../store/session";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
+import { NavLink } from "react-router-dom";
 import "./LoginForm.css";
 
 function LoginFormModal() {
@@ -50,6 +51,11 @@ function LoginFormModal() {
         </label>
         <button type="submit">Log In</button>
       </form>
+      <li className="sign-up-link">
+          <NavLink exact to="/signup" activeClassName="active-link">
+            Don't have an account? Sign up
+          </NavLink>
+        </li>
     </div>
   );
 }

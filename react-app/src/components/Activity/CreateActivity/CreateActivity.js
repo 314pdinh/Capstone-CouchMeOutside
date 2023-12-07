@@ -3,6 +3,8 @@ import { useModal } from '../../../context/Modal';
 import { useDispatch } from 'react-redux';
 import { createActivityThunk } from '../../../store/activity';
 import { loadSingleGroupThunk } from '../../../store/group';
+import './CreateActivity.css';
+
 
 function AddGroupActivityModal({ group }) {
     const dispatch = useDispatch();
@@ -67,7 +69,7 @@ function AddGroupActivityModal({ group }) {
                     />
 
 
-                    <label htmlFor='journal-create-description'>Activity Description <i style={{ color: 'red' }}>*</i></label>
+                    <label htmlFor='activity-create-description'>Activity Description <i style={{ color: 'red' }}>*</i></label>
                     <input
                         type='textarea'
                         value={activity_description}
@@ -77,7 +79,7 @@ function AddGroupActivityModal({ group }) {
                     />
 
 
-                    <label htmlFor='journal-create-image'>New Activity Image <i style={{ color: 'red' }}>*</i></label>
+                    <label htmlFor='activity-create-image'>New Activity Image <i style={{ color: 'red' }}>*</i></label>
                     <input
                         type='file'
                         name='activity-form-activity-image'
