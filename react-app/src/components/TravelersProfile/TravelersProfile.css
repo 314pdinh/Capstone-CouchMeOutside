@@ -45,4 +45,5 @@
     text-align: left;
     color: rgb(32, 54, 110);
     width: 300px;
+    word-break: break-all;
 }

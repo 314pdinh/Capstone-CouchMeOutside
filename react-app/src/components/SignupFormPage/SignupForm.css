@@ -1,0 +1,51 @@
+.sign-up-form-page {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.sign-up-form-page h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.error-list {
+    color: #e44d4d;
+}
+
+.sign-up-form-page label {
+    display: block;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.sign-up-form-page input,
+.sign-up-form-page textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.sign-up-form-page textarea {
+    resize: vertical;
+}
+
+.sign-up-form-page button.login-button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.sign-up-form-page button.login-button:hover {
+    background-color: #45a049;
+}

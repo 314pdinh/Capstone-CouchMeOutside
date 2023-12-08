@@ -5,6 +5,8 @@ footer {
     background-color: #131A22;
     color: white;
     padding: 50px 200px;
+    /* position: relative; */
+    margin-top: auto;
 }
 
 .footer-logo {
