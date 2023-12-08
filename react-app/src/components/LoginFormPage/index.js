@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { login } from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, NavLink } from "react-router-dom";
+import { useModal } from "../../context/Modal";
 import './LoginForm.css';
 
 function LoginFormPage() {
@@ -10,8 +11,20 @@ function LoginFormPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
+  const { closeModal } = useModal();
 
   if (sessionUser) return <Redirect to="/" />;
+
+  function LoginDemoUser() {
+    const demoUser = {
+      email: 'demo@aa.io',
+      password: 'password'
+    }
+
+    return dispatch(login(demoUser.email, demoUser.password))
+      .then(closeModal);
+  };
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -49,6 +62,10 @@ function LoginFormPage() {
           />
         </label>
         <button type="submit">Log In</button>
+
+        <div className="demo-login">
+          <button type='submit' onClick={LoginDemoUser}>Demo User</button>
+        </div>
 
         <li className="sign-up-link">
           <NavLink exact to="/signup" activeClassName="active-link">

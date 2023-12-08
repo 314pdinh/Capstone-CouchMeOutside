@@ -48,6 +48,7 @@
 .user-info-section p {
     font-size: 14px;
     color: #243B53;
+    word-break: break-all;
 }
 
 .section-title,

@@ -72,11 +72,10 @@ const ActivityUpdateModal = ({ activity, groupId }) => {
                 />
 
                 <label htmlFor="activity-description">New Activity Description</label>
-                <input
-                    type="text"
+                <textarea
                     value={activity_description}
                     onChange={(e) => setActivity_description(e.target.value)}
-                />
+                ></textarea>
 
                 <label htmlFor="activity-image">New Activity Image</label>
                 <input
@@ -85,11 +84,12 @@ const ActivityUpdateModal = ({ activity, groupId }) => {
                     accept="image/*"
                 ></input>
 
-
-                <button type="submit" className="updbtn"
-                >
-                    Update Activity
-                </button>
+                <div className='update-button'>
+                    <button type="submit" className="updbtn"
+                    >
+                        Update Activity
+                    </button>
+                </div>
             </form>
         </div>
     );

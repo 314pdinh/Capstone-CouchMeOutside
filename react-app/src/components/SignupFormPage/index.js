@@ -134,15 +134,14 @@ function SignupFormPage() {
 						accept="image/*"
 					/>
 				</label>
-				<label>
-					Bio
-					<input
-						type="textarea"
-						value={bio}
-						onChange={(e) => setBio(e.target.value)}
-						required
-					/>
-				</label>
+
+				<label htmlFor="bio-description">Bio Description</label>
+                <textarea
+                    value={bio}
+                    onChange={(e) => setBio(e.target.value)}
+					required
+                ></textarea>
+
 				<label>
 					Password
 					<input

@@ -2,10 +2,10 @@ import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import './LandingPage.css';
 
-import planeIMG from '../../assets/images/plane.jpeg'
-import disneyIMG from '../../assets/images/disney.jpeg'
-import londonIMG from '../../assets/images/london.jpeg'
-
+import planeIMG from '../../assets/images/plane.jpeg';
+import disneyIMG from '../../assets/images/disney.jpeg';
+import londonIMG from '../../assets/images/london.jpeg';
+import bunny from '../../assets/images/astronautBunny.png';
 
 const LandingPage = () => {
 
@@ -31,6 +31,10 @@ const LandingPage = () => {
                         {/* Meet other travelers
                     </NavLink> */}
                     <img className='landing-img-two' src={disneyIMG} alt='img' />
+                </div>
+
+                <div className='landing-page-right-img'>
+                    <img className='landing-img-three' src={bunny} alt='img' />
                 </div>
 
                 <div className='landing-page-right-img'>

@@ -1,0 +1,49 @@
+.update-wrapper {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.update-wrapper h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.form-boxx {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-boxx label {
+    margin-bottom: 8px;
+}
+
+.form-boxx input,
+.form-boxx textarea {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;
+}
+
+.form-boxx textarea {
+    min-height: 80px;
+}
+
+
+.form-boxx ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    color: red;
+}
+
+.form-boxx ul li {
+    margin-bottom: 5px;
+}
+

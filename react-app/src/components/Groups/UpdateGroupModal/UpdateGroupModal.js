@@ -3,6 +3,7 @@ import { useModal } from '../../../context/Modal';
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { updateGroupThunk, loadUserGroupsThunk, loadSingleGroupThunk } from '../../../store/group';
+import './UpdateGroupModal.css';
 
 const GroupUpdateModal = ({ singleGroup }) => {
     const dispatch = useDispatch();
@@ -81,17 +82,16 @@ const GroupUpdateModal = ({ singleGroup }) => {
 
                 <label htmlFor="group-description">New Group Name</label>
                 <input
-                    type="text"
+                    type="textarea"
                     value={group_name}
                     onChange={(e) => setGroup_name(e.target.value)}
                 />
 
                 <label htmlFor="group-description">New Group Description</label>
-                <input
-                    type="text"
+                <textarea
                     value={group_description}
                     onChange={(e) => setGroup_description(e.target.value)}
-                />
+                ></textarea>
 
                 <label htmlFor="group-image">New Group Image</label>
                 <input
@@ -100,10 +100,11 @@ const GroupUpdateModal = ({ singleGroup }) => {
                     accept="image/*"
                 ></input>
 
-
-                <button type="submit" className="updbtn">
-                    Update Group
-                </button>
+                <div className='update-button'>
+                    <button type="submit" className="updbtn">
+                        Update Group
+                    </button>
+                </div>
             </form>
         </div>
     );

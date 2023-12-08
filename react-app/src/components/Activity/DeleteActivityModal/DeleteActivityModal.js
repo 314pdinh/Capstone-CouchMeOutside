@@ -25,15 +25,18 @@ const DeleteActivityModal = ({ id, groupId }) => {
 
 
     return (
-        <div className='delete-activity-wrapper'>
-            <h2 className="delete-activity-header">Are you sure you want to delete this activity?</h2>
+        <div className='delete-group-wrapper'>
+            <h2 className="delete-group-header">Are you sure you want to delete this activity?</h2>
             <h2 className='warning'>This can't be undone</h2>
             <form onSubmit={handleSubmit}>
-                <div className="confirm">
-                    <button type="submit">Yes(Delete Activity)</button>
-                </div>
-                <div className="cancel">
-                    <button onClick={closeModal}>No(Keep Activity)</button>
+
+                <div className='delete-buttons-container'>
+                    <div className="delete-button">
+                        <button type="submit">Yes(Delete Activity)</button>
+                    </div>
+                    <div className="create-button">
+                        <button onClick={closeModal}>No(Keep Activity)</button>
+                    </div>
                 </div>
             </form>
         </div>

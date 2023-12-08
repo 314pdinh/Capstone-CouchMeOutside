@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from 'react-router-dom';
 
 import "./Footer.css";
-// import logo from '../Navigation/parmazon-logo.png';
+import logo from '../../assets/images/astronautBunny.png';
 
 function Footer() {
 
@@ -17,7 +17,7 @@ function Footer() {
             </div>
 
             <div id="footer-center">
-                {/* <NavLink exact to="/"><img className='footer-logo' src={logo} alt='logo' /></NavLink> */}
+                <NavLink exact to="/"><img className='footer-logo' src={logo} alt='logo' /></NavLink>
                 <p>&copy; {new Date().getFullYear()} CouchMeOutside, Inc. All Rights Reserved. Terms, Privacy & Accessibility
                 </p>
 
