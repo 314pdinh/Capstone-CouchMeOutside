@@ -11,6 +11,7 @@ import AccountPage from "./components/AccountPage/TravelerDashboard";
 import GroupDetails from "./components/Groups/GroupDetails/GroupDetails";
 import TravelersProfile from "./components/TravelersProfile/TravelersProfile";
 import Footer from './components/Footer/Footer';
+import ErrorPage from './components/ErrorPage/ErrorPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -34,9 +35,12 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
+          <Route path='*'>
+            <ErrorPage />
+          </Route>
         </Switch>
       )}
-      <Footer/>
+      <Footer />
     </>
   );
 }
