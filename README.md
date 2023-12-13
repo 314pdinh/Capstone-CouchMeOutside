@@ -1,9 +1,15 @@
-# Flask React Project
+# CouchMeOutside
 
-This is the starter for the Flask React project.
+CouchMeOutside is a full-stack application. It is a clone of Couchsurfing. Users can create groups, and plan activities together as a group. 
 
-## Getting started
-1. Clone this repository (only this branch)
+ADD SITE HERE
+
+## Tech Used
+Python, Javascript, React, Redux, Flax, Postgres, ...
+
+
+
+Getting started()
 
 2. Install dependencies
 
