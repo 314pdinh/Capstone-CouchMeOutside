@@ -3,6 +3,10 @@ from sqlalchemy.sql import text
 
 
 def seed_journals():
+    
+    print("Seeding journals...")
+
+    
     for journal in [
        {
             "name": 'Trip to Paris',
@@ -67,6 +71,9 @@ def seed_journals():
 
 
     db.session.commit()
+
+    print("Journal seeding completed.")
+
 
 def undo_journals():
     if environment=='production':
