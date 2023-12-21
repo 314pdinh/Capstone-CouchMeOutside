@@ -230,14 +230,17 @@ const CreateJournalFormm = () => {
 
                                 <div className="notes-box">
                                     <p>Notes</p>
+
+
                                     <label htmlFor='journal-create-description'>Note Description <i style={{ color: 'red' }}>*</i></label>
-                                    <input
-                                        type='text'
+                                    <textarea
                                         value={noteDescription}
-                                        required
                                         onChange={(e) => setNoteDescription(e.target.value)}
                                         placeholder='Describe your notes'
-                                    />
+                                        required
+                                    ></textarea>
+
+
                                 </div>
                             </div>
 
@@ -254,13 +257,12 @@ const CreateJournalFormm = () => {
                                 <div className="memory-box">
                                     <p>Favorite Memories</p>
                                     <label htmlFor='journal-create-description'>Memory Description <i style={{ color: 'red' }}>*</i></label>
-                                    <input
-                                        type='text'
+                                    <textarea
                                         value={memoryDescription}
                                         required
                                         onChange={(e) => setMemoryDescription(e.target.value)}
                                         placeholder='Describe your memory'
-                                    />
+                                    ></textarea>
                                 </div>
                                 <div className="country-name">
                                     <label htmlFor='journal-create-name'>Country Name <i style={{ color: 'red' }}>*</i></label>

@@ -21,17 +21,21 @@ function DeleteMemberModal({ group, member }) {
 
 
   return (
-    <div className="mainContainer">
-      <h1 className="deleteHeader">Confirm Delete</h1>
+    <div className='delete-group-wrapper'>
+    <h1 className="deleteHeader">Confirm Delete</h1>
       <p className="deleteText">Are you sure you want to remove this member ?</p>
+      <div className='delete-buttons-container'>
 
-      <div className="YN">
+      <div className="delete-button">
         <button
           id="yes-member-delete"
           onClick={handleSubmit}
         >
           Yes (Remove Member)
         </button>
+      </div>
+      <div className="create-button">
+
         <button
           id="no-member-delete"
           onClick={((e) => {
@@ -42,6 +46,7 @@ function DeleteMemberModal({ group, member }) {
         >
           No (Keep Member)
         </button>
+      </div>
       </div>
     </div>
   )

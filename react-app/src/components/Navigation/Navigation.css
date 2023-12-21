@@ -60,7 +60,7 @@ header {
 .nav-links a {
   text-decoration: none;
   color: #186FAF;
-
+  font-weight: 600;
 }
 
 .navButton {
