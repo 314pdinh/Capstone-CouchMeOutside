@@ -7,8 +7,14 @@
 }
 
 .journal-container {
-    background-color: rgb(211, 132, 132);
+    background-color: rgb(255, 245, 245);
     padding: 20px;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
+.journal-container p { 
+    color: #186FAF;
 }
 
 .journal-row1 {
@@ -50,6 +56,7 @@
     border-radius: 30px;
     object-fit: cover;
     margin-left: 50px;
+    border: 1px solid gray;
 }
 
 .journal-img1 {
@@ -57,37 +64,72 @@
     width: 300px;
     border-radius: 50%;
     object-fit: cover;
-    padding: 20px;
+    margin: 10px;
+    border: 1px solid gray;
 }
 
 
 .journal-row2 {
     display: flex;
     flex-direction: row;
-    background-color: aquamarine;
+}
+
+.memory-name-image-container {
+    /* background-color: aquamarine; */
+    word-break: break-all;
+    width: 450px;
+    padding: 40px;
+}
+
+.memory-name-image-container img {
+    margin-left: -50px;
 }
 
 .journal-img2 {
-    height: 600px;
+    height: 620px;
+    width: 420px;
+    object-fit: cover;
     border-radius: 30px;
     padding: 10px;
+    border: 1px solid gray;
 }
 
 .journal-img3 {
-    height: 400px;
+    height: 320px;
+    width: 500px;
+    object-fit: cover;
     border-radius: 30px;
     padding: 10px;
+    border: 1px solid gray;
 }
 
 .journal-description-content {
-    background-color: bisque;
+    /* background-color: bisque; */
     height: auto;
+    word-break: break-all;
+    width: 400px;
+    padding: 20px;
+}
+
+.name-box h2{
+    font-size: 24px;
+    font-weight: 800;
+    color: #003E6B;
+}
+
+.notes-box, .memory-box {
+    background-color: azure;
+    padding: 16px;
+    border-radius: 10px;
+    border: 1px solid grey;
 }
 
 .map-container {
     background-color: white;
     padding: 20px;
     margin-left: 15px;
+    border: 1px solid gray;
+    border-radius: 10px;
 }
 
 .reviews-text {
@@ -95,6 +137,8 @@
     padding: 20px;
     margin-left: 20px;
     border-radius: 20px;
+    border: 1px solid gray;
+    
 }
 
 .reviews-text h2 {
@@ -107,4 +151,10 @@
 
 .star-empty {
     color: #ccc;
+}
+
+.country-name h1 {
+    font-size: 80px;
+    font-weight: 400;
+    color: #003E6B;
 }

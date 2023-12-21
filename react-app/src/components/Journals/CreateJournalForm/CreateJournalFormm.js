@@ -224,7 +224,8 @@ const CreateJournalFormm = () => {
                                         required
                                         onChange={(e) => setName(e.target.value)}
                                         placeholder='What would you like to call this journal?'
-                                    />                            </div>
+                                    />
+                                </div>
 
 
                                 <div className="notes-box">
@@ -236,11 +237,12 @@ const CreateJournalFormm = () => {
                                         required
                                         onChange={(e) => setNoteDescription(e.target.value)}
                                         placeholder='Describe your notes'
-                                    />                            </div>
+                                    />
+                                </div>
                             </div>
 
 
-                            <div>
+                            <div className="memory-name-image-container">
                                 <label htmlFor='third-create-image'>New Third Image <i style={{ color: 'red' }}>*</i></label>
                                 <input
                                     type='file'
@@ -258,7 +260,8 @@ const CreateJournalFormm = () => {
                                         required
                                         onChange={(e) => setMemoryDescription(e.target.value)}
                                         placeholder='Describe your memory'
-                                    />                            </div>
+                                    />
+                                </div>
                                 <div className="country-name">
                                     <label htmlFor='journal-create-name'>Country Name <i style={{ color: 'red' }}>*</i></label>
                                     <input
