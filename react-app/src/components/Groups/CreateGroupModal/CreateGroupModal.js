@@ -72,7 +72,7 @@ const CreateGroupModal = () => {
 
 
                     <label htmlFor='group-create-description'>Group Description <i style={{ color: 'red' }}>*</i></label>
-                    <input
+                    <textarea
                         type='textarea'
                         value={group_description}
                         required

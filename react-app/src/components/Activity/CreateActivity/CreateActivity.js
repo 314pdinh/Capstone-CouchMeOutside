@@ -70,7 +70,7 @@ function AddGroupActivityModal({ group }) {
 
 
                     <label htmlFor='activity-create-description'>Activity Description <i style={{ color: 'red' }}>*</i></label>
-                    <input
+                    <textarea
                         type='textarea'
                         value={activity_description}
                         required

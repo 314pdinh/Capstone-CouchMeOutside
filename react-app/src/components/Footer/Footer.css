@@ -11,17 +11,24 @@ footer {
     z-index: 2;
 }
 
+
 .footer-logo {
     width: 100px;
     height: auto;
 }
 
-#footer-center {
-    text-align: center;
+.footer-logo-block {
+    display: flex;
+    justify-content: center;
+}
+
+.footer-left {
+    display: flex;
 }
 
 .githubs a,
-.linkedins a {
+.linkedins a,
+.personal-portfolio a {
     text-decoration: none;
     color: white;
     display: flex;
@@ -30,24 +37,41 @@ footer {
     padding: 5px;
 }
 
-.githubs i,
-.linkedins i {
+.githubs img,
+.linkedins img,
+.personal-portfolio img {
     margin-right: 5px;
     transition: transform 0.3s ease;
+    width: 60px;
+    height: 60px;
 }
 
-.githubs i:hover,
-.linkedins i:hover {
+.githubs img:hover,
+.linkedins img:hover,
+.personal-portfolio img:hover {
     transform: rotateY(180deg);
 }
 
 .githubs a:hover,
-.linkedins a:hover {
+.linkedins a:hover,
+.personal-portfolio a:hover {
     text-decoration: underline;
     opacity: 0.7;
 }
 
-#linkedin-links, #github-links {
+
+.portfolioIcon {
+    width: 20px;
+    height: 20px;
+}
+
+.footer-right {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+}
+
+
+.icons-row {
+    display: flex;
+    flex-direction: row;
 }
