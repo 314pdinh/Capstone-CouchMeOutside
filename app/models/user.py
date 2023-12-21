@@ -22,6 +22,7 @@ class User(db.Model, UserMixin):
 
     groups = db.relationship('GroupMember', back_populates='user', cascade='all, delete-orphan')
     activities = db.relationship('Activity', back_populates='owner', cascade="delete-orphan, all")
+    journals = db.relationship('Journal', back_populates='user',  cascade="delete-orphan, all")
     # comments = db.relationship('Comment', back_populates='user', cascade="delete-orphan, all")
     
     created_groups = db.relationship('Group', back_populates='owner')

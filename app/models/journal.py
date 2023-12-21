@@ -26,10 +26,8 @@ class Journal(db.Model):
     friendliness_review = db.Column(db.Float)
     cleanliness_review = db.Column(db.Float)  
     owner_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
-
     user = db.relationship('User', back_populates='journals')
     # reviews = db.relationship('Review', back_populates='journal', cascade="all, delete-orphan")
-
 
     def __repr__(self):
         return f"<Journal id:{self.id} name:{self.name}>"
@@ -45,7 +43,7 @@ class Journal(db.Model):
             'journalImage': self.journal_image,
             'secondaryImage': self.secondary_image,
             'thirdImage': self.third_image,
-            'fourth_image': self.fourth_image,
+            'fourthImage': self.fourth_image,
             # 'arrivalDate': self.arrival_date,
             # 'departureDate': self.departure_date,
             'foodReview': self.food_review,
@@ -55,10 +53,3 @@ class Journal(db.Model):
             'cleanlinessReview': self.cleanliness_review,
             'ownerId': self.owner_id
         }
-
-    def average_rating(self):
-        if not self.reviews:
-            return None
-        total_ratings = sum(review.rating for review in self.reviews)
-        average = total_ratings / len(self.reviews)
-        return round(average, 1)

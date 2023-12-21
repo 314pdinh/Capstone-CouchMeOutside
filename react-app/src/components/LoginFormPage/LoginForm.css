@@ -1,4 +1,4 @@
-.login-page-form {
+/* .login-page-form {
     max-width: 400px;
     margin: 0 auto;
     padding: 20px;
@@ -15,8 +15,7 @@
 .login-page-form ul {
     color: #e44d4d;
     list-style: none;
-    /* padding: 0;
-    margin: 0; */
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -84,4 +83,4 @@
 
 .sign-up-link a:hover {
     text-decoration: underline;
-}
+} */

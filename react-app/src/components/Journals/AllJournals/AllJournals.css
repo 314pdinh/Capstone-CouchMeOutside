@@ -1,0 +1,48 @@
+.main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .explore-welcome h1 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .journal {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  
+  .journal .image {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    margin-right: 20px;
+  }
+  
+  .journal .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .journal .details {
+    flex: 1;
+  }
+  
+  .journal .details .journal-name {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 5px;
+  }
+  
+  .journal .details .journal-description {
+    font-size: 1em;
+    margin-bottom: 5px;
+  }
+  
+  .journal .details .journal-memory {
+    font-size: 0.9em;
+  }
+  

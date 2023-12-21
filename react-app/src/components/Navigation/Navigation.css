@@ -2,6 +2,10 @@
   position: absolute;
 }
 
+.user-dropdown {
+  text-align: center;
+}
+
 .hidden {
   display: none;
 }
@@ -28,6 +32,11 @@ header {
   font-weight: bold;
   text-decoration: none;
   color: #003E6B;
+}
+
+.TitleHeader img {
+  width: 50px;
+  height: fit-content;
 }
 
 .header-right-nav {
@@ -77,7 +86,7 @@ header {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 10px 0;
   min-width: 150px;
-
+  z-index: 1000;
 }
 
 /* .profile-dropdown li {

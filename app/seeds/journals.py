@@ -6,7 +6,6 @@ def seed_journals():
     
     print("Seeding journals...")
 
-    
     for journal in [
        {
             "name": 'Trip to Paris',
@@ -19,8 +18,8 @@ def seed_journals():
             "secondary_image": "https://images.unsplash.com/photo-1568322445389-e9093c2695c7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGFyaXMlMjBzdHJlZXR8ZW58MHx8MHx8fDA%3D&w=1000&q=80",
             "third_image": "https://c8.alamy.com/comp/EJHRB9/cafe-de-flore-exterior-paris-france-EJHRB9.jpg",
             "fourth_image": "https://i0.wp.com/thegoodlifefrance.com/wp-content/uploads/2019/11/paris-in-winter.jpg",
-            "arrival_date": "2023-08-15",
-            "depature_date": "2023-08-22",
+            # "arrival_date": "2023-08-15",
+            # "depature_date": "2023-08-22",
             "food_review": 5,
             "sight_seeing_review": 5,
             "drinks_review": 5,
@@ -38,8 +37,8 @@ def seed_journals():
             "secondary_image": "https://cdn.portico.travel/i/v1.328833.jpg",
             "third_image": "https://media.timeout.com/images/105578156/750/422/image.jpg",
             "fourth_image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2018/04/10/13/tokyo-main.jpg",
-            "arrival_date": "2023-07-10",
-            "departure_date": "2023-07-18",
+            # "arrival_date": "2023-07-10",
+            # "departure_date": "2023-07-18",
             "food_review": 5,
             "sight_seeing_review": 5,
             "drinks_review": 4,
@@ -57,8 +56,8 @@ def seed_journals():
             "secondary_image": "https://www.indonesia.travel/content/dam/indtravelrevamp/en/destinations/revisi-2020/destinations-thumbnail/Bali-Thumbnail.jpg",
             "third_image": "https://www.affordableluxurytravel.co.uk/blog/wp-content/uploads/2021/11/AdobeStock_103587221-scaled.jpeg",
             "fourth_image": "https://media.digitalnomads.world/wp-content/uploads/2021/01/20120709/bali-for-digital-nomads.jpg",
-            "arrival_date": "2023-09-05",
-            "departure_date": "2023-09-12",
+            # "arrival_date": "2023-09-05",
+            # "departure_date": "2023-09-12",
             "food_review": 4,
             "sight_seeing_review": 5,
             "drinks_review": 5,
@@ -73,7 +72,6 @@ def seed_journals():
     db.session.commit()
 
     print("Journal seeding completed.")
-
 
 def undo_journals():
     if environment=='production':
