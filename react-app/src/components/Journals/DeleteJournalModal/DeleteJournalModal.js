@@ -21,15 +21,17 @@ const DeleteJournalModal = ({ journal }) => {
 
 
     return (
-        <div className='delete-journal-wrapper'>
-            <h2 className="delete-journal-header">Are you sure you want to delete this journal?</h2>
+        <div className='delete-group-wrapper'>
+            <h2 className="delete-group-header">Are you sure you want to delete this journal?</h2>
             <h2 className='warning'>This can't be undone</h2>
             <form onSubmit={handleSubmit}>
-                <div className="confirm">
-                    <button type="submit">Yes(Delete Journal)</button>
-                </div>
-                <div className="cancel">
-                    <button onClick={closeModal}>No(Keep Journal)</button>
+                <div className='delete-buttons-container'>
+                    <div className="delete-button">
+                        <button type="submit">Yes(Delete Journal)</button>
+                    </div>
+                    <div className="create-button">
+                        <button onClick={closeModal}>No(Keep Journal)</button>
+                    </div>
                 </div>
             </form>
         </div>

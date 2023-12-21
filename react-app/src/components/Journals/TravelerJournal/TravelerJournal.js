@@ -118,20 +118,20 @@ const TravelerJournal = () => {
               </div>
 
               <div className="journal-description-content">
-
-                <div className="name-box">
-                  <p className="journal-name">{journal.name}</p>
-                </div>
-
-
                 <div className="notes-box">
+
+                  <div className="name-box">
+                    <h2 className="journal-name">{journal.name}</h2>
+                  </div>
+
+
                   <p>Notes</p>
                   <p className="note-description">{journal.noteDescription}</p>
                 </div>
               </div>
 
 
-              <div>
+              <div className="memory-name-image-container">
                 <img
                   className="journal-img3"
                   src={journal.thirdImage || defaultImage}
@@ -140,9 +140,11 @@ const TravelerJournal = () => {
                 <div className="memory-box">
                   <p>Favorite Memories</p>
                   <p className="note-description">{journal.memoryDescription}</p>
-                </div>
-                <div className="country-name">
-                  {journal.countryName}
+                  <div className="country-name">
+                    <h1>
+                      {journal.countryName}
+                    </h1>
+                  </div>
                 </div>
               </div>
 
@@ -155,20 +157,24 @@ const TravelerJournal = () => {
               buttonText='Update Journal'
               modalComponent={<JournalUpdateModal title='Update Journal' journal={journal} />}
             /> */}
+            <div className='update-button'>
 
-            <button onClick={
-              (e) => {
-                e.preventDefault();
-                history.push(`/journals/${journalId}/edit`);
-              }
-            }> Update Journal </button>
+              <button onClick={
+                (e) => {
+                  e.preventDefault();
+                  history.push(`/journals/${journalId}/edit`);
+                }
+              }> Update Journal </button>
+            </div>
+            <div className="delete-button">
 
-            <OpenModalButton
-              className='journal-delete-btn'
-              id='delete'
-              buttonText="Delete Journal"
-              modalComponent={<JournalDeleteModal title='Delete Journal' journal={journal} />}
-            />
+              <OpenModalButton
+                className='journal-delete-btn'
+                id='delete'
+                buttonText="Delete Journal"
+                modalComponent={<JournalDeleteModal title='Delete Journal' journal={journal} />}
+              />
+            </div>
           </div>
         )}
       </div>

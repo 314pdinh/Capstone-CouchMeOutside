@@ -190,7 +190,7 @@ def edit_journal(journalId):
         if fourth_image:
             fourth_image.filename = get_unique_filename(fourth_image.filename)
             uploadFourthImage = upload_file_to_s3(fourth_image)
-            if 'url' not in uploadFourthImage:
+            if 'url' in uploadFourthImage:
                 journal.fourth_image = uploadFourthImage['url']       
 
         db.session.commit()
