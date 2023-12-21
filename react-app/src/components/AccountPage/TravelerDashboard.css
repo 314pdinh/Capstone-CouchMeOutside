@@ -90,11 +90,98 @@
 }
 
 
+
+
+
+/* Journals */
+
+.user-journals-container {
+    background: linear-gradient(to right, #d8edff, #90cdfc);
+    border: 1px solid #ddd;
+    /* border-radius: 10px; */
+    padding: 0 20px 20px;
+
+}
+
+.user-journals-container h3 {
+    color: #102A43;
+    font-size: 16px;
+}
+
+.user-journal-link {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    color: #ffffff;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    overflow: hidden;
+
+    position: relative;
+
+}
+
+.user-journal-image {
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
+    padding: 30px;
+    padding-bottom: 50px;
+    border: 1px solid rgb(129, 129, 129);
+    border-radius: 10px;
+}
+
+
+.user-journal-image img {
+    width: 80%;
+    height: 100%;
+    object-fit: cover;
+    border: 1px solid rgb(129, 129, 129);
+
+}
+
+.user-journal-details {
+    margin: 0;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.3);
+    font-weight: bolder;
+    /* border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px; */
+
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.user-journal-link:hover .user-journal-details {
+    transform: translateY(0);
+}
+
+.user-journal-note-description,
+.user-journal-memory- {
+    font-size: 1em;
+    margin-bottom: 5px;
+}
+
+.new-journal-section {
+    list-style: none;
+    padding: 10px;
+}
+
+.new-journal-section h1 {
+    font-size: xx-large;
+    margin-bottom: 10px;
+}
+
+
 /* Groups */
 
 .user-groups-container {
     padding: 0 20px 20px;
-    background-color: azure;
+    background: linear-gradient(to right, #d8c2c2, #ffffff);
     /* box-shadow: inset 0 2px 2px hsla(0, 0%, 0%, 0.1); */
     border: 1px solid rgb(233, 233, 233);
 }
@@ -102,7 +189,7 @@
 .user-groups-container h3 {
     color: #102A43;
     font-size: 16px;
-    
+
 }
 
 .users-groups-boxes {
@@ -111,6 +198,7 @@
     flex-wrap: wrap;
     gap: 20px;
     align-items: flex-start;
+    margin-top: 20px;
 }
 
 .user-group-box {
@@ -119,7 +207,7 @@
     width: 20%;
     height: fit-content;
     box-shadow: inset 0 2px 2px hsla(0, 0%, 0%, 0.1);
-
+    background-color: azure;
 }
 
 .user-group-link {
@@ -158,15 +246,6 @@
 
 .new-group-section h1 {
     color: #102A43;
-}
-
-.account-create-group-modal button {
-    color: white;
-    background-color: #2f97ff;
-}
-
-.account-create-group-modal button:hover {
-    background-color: #154d91;
 }
 
 /* .user-groups-container {

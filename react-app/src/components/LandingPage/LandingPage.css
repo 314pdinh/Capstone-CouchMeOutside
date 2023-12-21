@@ -2,10 +2,15 @@
     display: flex;
     flex-direction: row;
     padding: 30px;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 70vh;
 }
 
 .landing-page-left-box {
-    background: linear-gradient(to right, #d8edff, #90cdfc);
+    /* background: linear-gradient(to right, #d8edff, #90cdfc); */
     color: #48638f;
     width: 60%;
     display: flex;
@@ -16,11 +21,16 @@
 }
 
 .landing-h1 {
-    font-size: 24px;
+    font-size: 56px;
+    color: aliceblue;
+
 }
 
 .landing-titles h2 {
-    font-size: 48px;
+    font-size: 52px;
+    background: linear-gradient(to right, #d8edff, #90cdfc);
+    padding: 10px;
+    border-radius: 20px;
 }
 
 /* .landing-h21 {

@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
+import bunny from '../../assets/images/astronautBunny.png';
 
 function Navigation({ isLoaded }) {
 	const sessionUser = useSelector(state => state.session.user);
@@ -15,6 +16,7 @@ function Navigation({ isLoaded }) {
 					<div className='traveljournal'>
 						<h1 className="nav-item">
 							<NavLink className='TitleHeader' exact to="/">
+								{/* <img className='icon-bunny' src={bunny} alt='logo-icon' /> */}
 								<i className="fa-solid"></i>
 								CouchMeOutside
 							</NavLink>

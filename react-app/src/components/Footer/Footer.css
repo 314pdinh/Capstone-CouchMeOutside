@@ -5,8 +5,10 @@ footer {
     background-color: #131A22;
     color: white;
     padding: 50px 200px;
-    /* position: relative; */
     margin-top: auto;
+    min-height: 10vh;
+    position: relative;
+    z-index: 2;
 }
 
 .footer-logo {

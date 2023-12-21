@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify, session, request
 from flask_login import current_user, login_required
 from app.models import User, Journal, db
 from .AWS_helpers import get_unique_filename, upload_file_to_s3, remove_file_from_s3
-from app.forms import CreateJournalForm, UpdateJournalForm
+from app.forms import JournalForm
 
 journal_routes = Blueprint('journal', __name__)
 
@@ -48,7 +48,7 @@ def delete_journal(journalId):
 @login_required
 @journal_routes.route('/create', methods=['POST'])
 def create_journal():
-    form = CreateJournalForm()
+    form = JournalForm()
 
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
@@ -135,7 +135,7 @@ def edit_journal(journalId):
     if current_user.id != journal.owner_id:
         return jsonify({"message": 'You do not have permission to edit this journal'}), 403
 
-    form = UpdateJournalForm()
+    form = JournalForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
@@ -145,8 +145,8 @@ def edit_journal(journalId):
         note_description = form.data['note_description']
         memory_description = form.data['memory_description']
         
-        journal.arrival_date = form.data['arrival_date']
-        journal.departure_date = form.data['departure_date']
+        # journal.arrival_date = form.data['arrival_date']
+        # journal.departure_date = form.data['departure_date']
         journal.food_review = form.data['food_review']
         journal.sight_seeing_review = form.data['sight_seeing_review']
         journal.drinks_review = form.data['drinks_review']
@@ -155,6 +155,7 @@ def edit_journal(journalId):
 
         journal.note_description = note_description if note_description != None else ""
         journal.memory_description = memory_description if memory_description != None else ""
+
 
         country_flag_image = form.data['country_flag_image']
         if country_flag_image:
@@ -186,12 +187,11 @@ def edit_journal(journalId):
                 journal.third_image = uploadThirdImage['url']
                 
         fourth_image = form.data['fourth_image']
-        fourth_image.filename = get_unique_filename(fourth_image.filename)
-        uploadFourthImage = upload_file_to_s3(fourth_image)
-        if 'url' not in uploadFourthImage:
-            return uploadFourthImage
-        else:
-            journal.fourth_image = uploadFourthImage['url']          
+        if fourth_image:
+            fourth_image.filename = get_unique_filename(fourth_image.filename)
+            uploadFourthImage = upload_file_to_s3(fourth_image)
+            if 'url' not in uploadFourthImage:
+                journal.fourth_image = uploadFourthImage['url']       
 
         db.session.commit()
 
@@ -235,6 +235,7 @@ def edit_journal(journalId):
 
 
 @journal_routes.route('/current', methods=['GET'])
+@login_required
 def get_user_journals():
     """
     Get a list of all journals owned by the current user.

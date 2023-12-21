@@ -46,23 +46,23 @@ function ProfileButton({ user }) {
       </button>
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
-          <>
+          <div className='user-dropdown'>
             <li>{user.username}</li>
             <li>{user.email}</li>
             <li>
               <button onClick={handleLogout}>Log Out</button>
             </li>
-          </>
+          </div>
         ) : (
           <>
             <button>
-              <NavLink exact to="/login" activeClassName="active-link">
+              <NavLink exact to="/user-form-page" activeClassName="active-link">
                 Login
               </NavLink>
             </button>
 
             <button>
-              <NavLink exact to="/signup" activeClassName="active-link">
+              <NavLink exact to="/user-form-page" activeClassName="active-link">
                 Sign up
               </NavLink>
             </button>

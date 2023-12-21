@@ -1,0 +1,214 @@
+.form.sign-in {
+  max-width: 500px;
+  margin: 0 auto;
+  margin-top: 170px;
+  padding: 50px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  border: 2px solid #3e5164;
+}
+
+.demo-login {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.demo-login button {
+  width: 50%;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #4baef6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.demo-login button:hover {
+  background-color: #2a5db0;
+}
+
+.login-button {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.login-button button {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #4baef6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-button button:hover {
+  background-color: #2a5db0;
+}
+
+.form.sign-up {
+  max-width: 500px;
+  margin: 0 auto;
+  margin-top: 170px;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  border: 2px solid #3e5164;
+}
+
+.signup-column {
+  display: flex;
+  flex-direction: row;
+}
+
+.signup-left, .signup-right {
+  padding: 10px;
+}
+
+.form.sign-up, .form.sign-in h1 {
+  text-align: center;
+}
+
+.error-list {
+  color: red;
+  list-style-type: none;
+  padding: 0;
+}
+
+.error-list li {
+  margin-bottom: 5px;
+}
+
+
+.form.sign-in label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.form.sign-in input {
+  width: 95%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form.sign-up label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.form.sign-up input {
+  width: 95%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.signup-button button {
+  width: 100%;
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.signup-button button:hover {
+  background-color: #45a049;
+}
+
+
+.banner-side{
+  position: absolute;
+  right: 65%;
+
+  width: 35%;
+  height: 100%;
+
+  flex-direction: column;
+
+  color: #ffffff;
+  text-align: center;
+
+  transition: 2s;
+  background-image: url('../../assets/images/croatia.jpg');
+  background-size: cover;
+  
+}
+
+.banner-header {
+  font-size: xx-large;
+}
+
+.banner-container{
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner-header h2,
+.banner-header p {
+  margin: 0;
+  margin-bottom: 5%;
+}
+
+.banner-button {
+  width: 30%;
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-side{
+  position: absolute;
+  right: 0;
+
+  width: 65%;
+  height: 100%;
+
+  background-color: #EEFCF8;
+  color: #035E7B;
+  transition: 2s;
+}
+
+/* .form-side button{
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #4baef6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+} */
+
+.form-side button:hover {
+  background-color: #1c86ff;
+} 
+
+.send-right{
+  right: 0;
+}
+
+.send-left{
+  right: 35%;
+}
+
+.user-form-container {
+  display: flex;
+  position: relative;
+  min-height: 100vh;
+}

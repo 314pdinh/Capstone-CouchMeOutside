@@ -4,12 +4,14 @@ import session from './session'
 import groupsReducer from './group';
 import usersReducer from './user';
 import activitiesReducer from './activity';
+import journalsReducer from './journal';
 
 const rootReducer = combineReducers({
   session,
   groups: groupsReducer,
   users: usersReducer,
   activities: activitiesReducer,
+  journals: journalsReducer,
 });
 
 
