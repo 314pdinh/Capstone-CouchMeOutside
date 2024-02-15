@@ -14,11 +14,14 @@ class Group(db.Model):
     
     activities = db.relationship('Activity', back_populates='group', cascade='all, delete-orphan')
     group_members = db.relationship('GroupMember', back_populates='group', cascade='all, delete-orphan')
+    comments = db.relationship('Comment', back_populates='group', cascade='all, delete-orphan')
+
     owner = db.relationship('User', back_populates='created_groups')
     
     def to_dict(self):
         members = [member.user.username for member in self.group_members]
         activities = [activity.to_dict() for activity in self.activities] 
+        comments = [comment.to_dict() for comment in self.comments]
         return {
             'id': self.id,
             'group_name': self.group_name,
@@ -26,5 +29,6 @@ class Group(db.Model):
             'group_image': self.group_image,
             'owner_id': self.owner_id,
             'members': members,
-            'activities': activities 
+            'activities': activities,
+            'comments': comments
         }
