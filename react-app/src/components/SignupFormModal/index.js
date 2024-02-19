@@ -72,7 +72,7 @@ function SignupFormModal() {
 			form.append("profile_img2", profile_img2);
 
 
-			console.log("Form dataHEREEE:", form);
+			// console.log("Form dataHEREEE:", form);
 
 			const data = await dispatch(signUp(form));
 			if (data) {

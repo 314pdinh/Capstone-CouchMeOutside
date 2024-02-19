@@ -38,7 +38,7 @@ function AddGroupActivityModal({ group }) {
 
         dispatch(createActivityThunk(form, group.id)).then((responseData) => {
             if (responseData.error) {
-                console.log('creating activity error')
+                // console.log('creating activity error')
                 setError(responseData.error);
             } else {
                 closeModal();

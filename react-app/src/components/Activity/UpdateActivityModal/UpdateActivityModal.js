@@ -6,8 +6,8 @@ import { updateGroupThunk, loadUserGroupsThunk, loadSingleGroupThunk } from '../
 import { updateActivityThunk, loadUserActivitiesThunk, loadSingleActivityThunk } from '../../../store/activity';
 
 const ActivityUpdateModal = ({ activity, groupId }) => {
-    console.log('activityUpdateModal activity', activity)
-    console.log('activityUpdateModal groupID', groupId)
+    // console.log('activityUpdateModal activity', activity)
+    // console.log('activityUpdateModal groupID', groupId)
 
     const dispatch = useDispatch();
     const history = useHistory();
@@ -39,7 +39,7 @@ const ActivityUpdateModal = ({ activity, groupId }) => {
         form.append('activity_description', activity_description);
         form.append('activity_image', activity_image);
         form.append("activityId", activity.id);
-        console.log('Form data ---- handleSubmit:', form);
+        // console.log('Form data ---- handleSubmit:', form);
 
         dispatch(updateActivityThunk(form)).then((responseData) => {
             if (responseData.error) {

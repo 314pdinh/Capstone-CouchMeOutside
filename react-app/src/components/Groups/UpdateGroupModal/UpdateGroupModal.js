@@ -37,27 +37,27 @@ const GroupUpdateModal = ({ singleGroup }) => {
             return;
         }
 
-        console.log('Data send is in groupapidPUT request:', {
-            group_name,
-            group_description,
-            group_image
-        });
-        console.log('singleGroup:', singleGroup);
-        console.log('ID from singleGroup:', singleGroup.group.id);
+        // console.log('Data send is in groupapidPUT request:', {
+        //     group_name,
+        //     group_description,
+        //     group_image
+        // });
+        // console.log('singleGroup:', singleGroup);
+        // console.log('ID from singleGroup:', singleGroup.group.id);
 
         const form = new FormData();
         form.append('group_name', group_name);
         form.append('group_description', group_description);
         form.append('group_image', group_image);
         form.append("groupId", singleGroup.group.id);
-        console.log('Form data ---- handleSubmit:', form);
+        // console.log('Form data ---- handleSubmit:', form);
 
         dispatch(updateGroupThunk(form)).then((responseData) => {
             if (responseData.error) {
                 setError(responseData.error);
             } else {
-                console.log('Update successful. Response data:', responseData);
-                console.log('------Response data GROUP ID-------', responseData['updated group'].id);
+                // console.log('Update successful. Response data:', responseData);
+                // console.log('------Response data GROUP ID-------', responseData['updated group'].id);
                 const updatedGroupId = responseData['updated group'].id;
                 history.push(`/groups/${updatedGroupId}`);
                 closeModal();

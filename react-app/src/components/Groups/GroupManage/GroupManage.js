@@ -4,7 +4,7 @@ import DeleteGroupModal from "../DeleteGroupModal/DeleteGroupModal";
 import './GroupManage.css';
 
 const GroupManage = ({ singleGroup }) => {
-    console.log('GROUPMANAGEEEEE ID', singleGroup)
+    // console.log('GROUPMANAGEEEEE ID', singleGroup)
     return (
         <div className="manage-container-group">
             <h1 className="manage-header-group">Manage {singleGroup.group.group_name} group</h1>

@@ -108,9 +108,9 @@ export const loadSingleActivityThunk = (activityId) => async () => {
 }
 
 export const updateActivityThunk = (form) => async () => {
-  console.log('Form data ---- updateActivityThunk:', form);
+  // console.log('Form data ---- updateActivityThunk:', form);
   const activityId = form.get('activityId')
-  console.log('activityId from update activity thunk', activityId)
+  // console.log('activityId from update activity thunk', activityId)
   const res = await fetch(`/api/activities/${form.get('activityId')}/update`, {
     method: "PUT",
     body: form,
@@ -125,9 +125,9 @@ export const updateActivityThunk = (form) => async () => {
 
 export const createActivityThunk = (formData, groupId) => async () => {
   try {
-    console.log('createActivity thunk starting')
-    console.log('this is the formdata creatingActivity', formData)
-    console.log('this is the groupIDD creatingActivity:', groupId)
+    // console.log('createActivity thunk starting')
+    // console.log('this is the formdata creatingActivity', formData)
+    // console.log('this is the groupIDD creatingActivity:', groupId)
 
     const response = await fetch(`/api/activities/${groupId}/new`, {
       method: "POST",
@@ -136,14 +136,14 @@ export const createActivityThunk = (formData, groupId) => async () => {
 
     const activityData = await response.json();
 
-    console.log("createactivityThunk RESPONSE ", response)
-    console.log("createactivityThunk ACTIVITY date", activityData)
+    // console.log("createactivityThunk RESPONSE ", response)
+    // console.log("createactivityThunk ACTIVITY date", activityData)
 
     if (response.ok) {
-      console.log('createActivity Thunk success')
+      // console.log('createActivity Thunk success')
       return activityData;
     } else {
-      console.log('createActivity Thunk fial')
+      // console.log('createActivity Thunk fial')
       return activityData.errors
     }
   } catch (error) {
@@ -153,8 +153,8 @@ export const createActivityThunk = (formData, groupId) => async () => {
 
 export const deleteActivityThunk = (activityId) => async () => {
   try {
-    console.log('delete activity Thunk actId', activityId)
-    console.log('deletingActivity thunk starting')
+    // console.log('delete activity Thunk actId', activityId)
+    // console.log('deletingActivity thunk starting')
 
     const res = await fetch(`/api/activities/${activityId}/delete`, {
       method: "DELETE",
@@ -164,7 +164,7 @@ export const deleteActivityThunk = (activityId) => async () => {
     })
 
     if (res.ok) {
-      console.log('sucessful delete activity thunk')
+      // console.log('sucessful delete activity thunk')
     } else {
       const errors = await res.json();
       return errors;
@@ -196,7 +196,7 @@ export const loadUserActivitiesThunk = () => async (dispatch) => {
     const res = await fetch("/api/activities/current");
 
     const data = await res.json();
-    console.log('this is the data, ', data)
+    // console.log('this is the data, ', data)
     const normalizedData = {};
     Object.values(data).forEach((activity) => {
       normalizedData[activity.id] = activity;
