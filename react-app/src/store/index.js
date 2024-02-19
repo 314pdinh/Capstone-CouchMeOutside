@@ -5,6 +5,7 @@ import groupsReducer from './group';
 import usersReducer from './user';
 import activitiesReducer from './activity';
 import journalsReducer from './journal';
+import commentsReducer from './comment';
 
 const rootReducer = combineReducers({
   session,
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
   users: usersReducer,
   activities: activitiesReducer,
   journals: journalsReducer,
+  comments: commentsReducer,
 });
 
 

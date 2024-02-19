@@ -6,7 +6,7 @@ import { deleteGroupThunk, loadUserGroupsThunk } from '../../../store/group';
 import './DeleteGroupModal.css';
 
 const DeleteGroupModal = ({ id }) => {
-    console.log('id HERE from delete group MODAL:', id)
+    // console.log('id HERE from delete group MODAL:', id)
     const { closeModal } = useModal();
     const dispatch = useDispatch();
     const history = useHistory();

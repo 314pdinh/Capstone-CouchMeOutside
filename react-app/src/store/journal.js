@@ -89,7 +89,7 @@ export const loadSingleJournalThunk = (journalId) => async (dispatch) => {
 }
 
 export const updateJournalThunk = (form) => async (dispatch) => {
-  console.log('Form data ---- updateJournalThunk:', form);
+  // console.log('Form data ---- updateJournalThunk:', form);
   try {
     const res = await fetch(`/api/journals/${form.get('id')}`, {
       method: "PUT",
@@ -109,7 +109,7 @@ export const updateJournalThunk = (form) => async (dispatch) => {
 }
 
 export const createJournalThunk = (formData) => async (dispatch) => {
-  console.log(`this is the formdata ${formData}`)
+  // console.log(`this is the formdata ${formData}`)
   try {
     const res = await fetch("/api/journals/create", {
       method: "POST",
@@ -169,7 +169,7 @@ export const loadUserJournalsThunk = () => async (dispatch) => {
     const res = await fetch("/api/journals/current");
 
     const data = await res.json();
-    console.log('this is the data, ', data)
+    // console.log('this is the data, ', data)
     const normalizedData = {};
     Object.values(data).forEach((journal) => {
       normalizedData[journal.id] = journal;

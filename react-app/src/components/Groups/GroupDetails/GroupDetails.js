@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { loadSingleGroupThunk } from "../../../store/group";
 import OpenModalButton from '../../OpenModalButton';
 import GroupManage from "../GroupManage/GroupManage";
+import ChatBox from "./ChatBox";
 import './GroupDetails.css';
 
 import { getAllUsersThunk } from '../../../store/user';
@@ -12,6 +13,9 @@ import { getAllUsersThunk } from '../../../store/user';
 // Activities
 import ActivityManage from "../../Activity/ActivityManage/ActivityManage";
 import AddGroupActivityModal from "../../Activity/CreateActivity/CreateActivity";
+
+import CommentManage from "../../Comment/CommentManage/CommentManage";
+import CreateCommentModal from "../../Comment/CreateComment/CreateComment";
 
 import AddMemberModal from '../../Member/AddMemberModal/AddMemberModal';
 import DeleteMemberModal from '../../Member/RemoveMemberModal/RemoveMemberModal'
@@ -146,7 +150,7 @@ const GroupDetails = () => {
                                                 user.id === singleGroup.group.owner_id &&
                                                 user.username !== member && (
                                                     <div className="delete-button">
-                                                        {console.log('Condition met. Rendering DeleteMemberModal.')}
+                                                        {/* {console.log('Condition met. Rendering DeleteMemberModal.')} */}
                                                         <OpenModalButton
                                                             buttonText={"Remove Member"}
                                                             modalComponent={
@@ -164,6 +168,7 @@ const GroupDetails = () => {
                             </div>
                         </div>
 
+                        <ChatBox singleGroup={singleGroup} userId={userId} groupId={groupId} users={users} />
 
                         <div className="activities-section-group">
 
@@ -181,8 +186,8 @@ const GroupDetails = () => {
                                 {singleGroup.group.activities.map((activity, index) => (
                                     <div key={index} className="group-details-activity-card">
                                         {/* isActivityOwner */}
-                                        {console.log('activity ActivityOwner', activity)}
-                                        {console.log('activity index', index)}
+                                        {/* {console.log('activity ActivityOwner', activity)}
+                                        {console.log('activity index', index)} */}
 
 
                                         <div className="activity-image">

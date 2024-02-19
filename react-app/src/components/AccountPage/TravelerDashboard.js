@@ -19,7 +19,7 @@ const AccountPage = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const user = useSelector((state) => state.session.user);
-    console.log('this is the user', user)
+    // console.log('this is the user', user)
     const allGroups = useSelector((state) => state.groups.allGroups);
     const allJournals = useSelector((state) => state.journals.allJournals);
 
@@ -50,13 +50,13 @@ const AccountPage = () => {
         dispatch(loadUserJournalsThunk(user.id));
     }, [dispatch, user.id]);
 
-    console.log('User data:', user);
+    // console.log('User data:', user);
 
-    console.log('allGroups:', allGroups);
-    console.log('userGrops:', userGroups);
+    // console.log('allGroups:', allGroups);
+    // console.log('userGrops:', userGroups);
 
-    console.log('allJournals:', allJournals);
-    console.log('userJournals:', userJournals);
+    // console.log('allJournals:', allJournals);
+    // console.log('userJournals:', userJournals);
 
     const settings = {
         dots: true,

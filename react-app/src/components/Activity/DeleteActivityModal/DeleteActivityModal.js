@@ -7,8 +7,8 @@ import { loadSingleGroupThunk } from '../../../store/group';
 
 
 const DeleteActivityModal = ({ id, groupId }) => {
-    console.log('id HERE from delete activity MODAL:', id)
-    console.log('groupId HERE from delete activity MODAL:', groupId)
+    // console.log('id HERE from delete activity MODAL:', id)
+    // console.log('groupId HERE from delete activity MODAL:', groupId)
 
     const { closeModal } = useModal();
     const dispatch = useDispatch();

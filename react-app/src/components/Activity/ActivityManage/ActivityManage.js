@@ -4,8 +4,8 @@ import DeleteActivityModal from "../DeleteActivityModal/DeleteActivityModal";
 // import './GroupManage.css';
 
 const ActivityManage = ({ id, groupId, activity }) => {
-    console.log('GROUPMANAGEEEEE ID', id)
-    console.log('GROUPMANAGEEEEE ID', groupId)
+    // console.log('GROUPMANAGEEEEE ID', id)
+    // console.log('GROUPMANAGEEEEE ID', groupId)
 
     return (
         <div className="manage-container-group">

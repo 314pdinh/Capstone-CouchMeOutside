@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import Map from '../TravelerJournal/GoogleMap';
 
 const JournalUpdateForm = () => {
-    console.log('UPDATING JOURNAL NOWWWWW')
+    // console.log('UPDATING JOURNAL NOWWWWW')
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -16,10 +16,10 @@ const JournalUpdateForm = () => {
 
     const journal = journals ? journals[journalId] : null
 
-    console.log('this is the JOUR HEREEEEE', journal)
+    // console.log('this is the JOUR HEREEEEE', journal)
 
-    console.log('this is the JOURNALLLLLL HEREEEEE', journals)
-    console.log('this is the JOURNALLLLLLIDDDD HEREEEEE', journalId)
+    // console.log('this is the JOURNALLLLLL HEREEEEE', journals)
+    // console.log('this is the JOURNALLLLLLIDDDD HEREEEEE', journalId)
 
 
     const user = useSelector((state) => state.session.user);
@@ -92,13 +92,13 @@ const JournalUpdateForm = () => {
         form.append('fourth_image', fourthImage);
         form.append("id", journal.id);
 
-        console.log('Form data ---- handleSubmit:', form);
+        // console.log('Form data ---- handleSubmit:', form);
 
         dispatch(updateJournalThunk(form)).then((responseData) => {
             if (responseData.error) {
                 setError(responseData.error);
             } else {
-                console.log('Update successful. Response data:', responseData);
+                // console.log('Update successful. Response data:', responseData);
                 history.push(`/account`);
                 closeModal();
                 dispatch(loadUserJournalsThunk(user.id));

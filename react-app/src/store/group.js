@@ -45,7 +45,7 @@ export const createGroupAction = (group) => {
 }
 
 export const updateGroupAction = (group) => {
-  console.log('GROUPPPPPP updateGroupAction:', group);
+  // console.log('GROUPPPPPP updateGroupAction:', group);
   return {
     type: UPDATE_GROUP,
     group
@@ -97,9 +97,9 @@ export const loadSingleGroupThunk = (groupId) => async (dispatch) => {
   const res = await fetch(`/api/groups/${groupId}`)
   if (res.ok) {
     const groupData = await res.json();
-    console.log('this is the one group thunk data', groupData)
+    // console.log('this is the one group thunk data', groupData)
     dispatch(loadSingleGroupAction(groupData));
-    console.log('this is the 2nd one group thunk data', groupData)
+    // console.log('this is the 2nd one group thunk data', groupData)
 
     return groupData
   } else {
@@ -114,7 +114,7 @@ export const loadUserGroupsThunk = () => async (dispatch) => {
 
   if (res.ok) {
     const groupsData = await res.json();
-    console.log('groupsData', groupsData);
+    // console.log('groupsData', groupsData);
     dispatch(loadUserGroupsAction(groupsData));
     return groupsData;
   } else {
@@ -125,7 +125,7 @@ export const loadUserGroupsThunk = () => async (dispatch) => {
 
 
 export const createGroupThunk = (formData) => async (dispatch) => {
-  console.log(`this is the formdata ${formData}`)
+  // console.log(`this is the formdata ${formData}`)
   const res = await fetch("/api/groups/create", {
     method: "POST",
     body: formData
@@ -142,9 +142,9 @@ export const createGroupThunk = (formData) => async (dispatch) => {
 }
 
 export const updateGroupThunk = (form) => async (dispatch) => {
-  console.log('Form data ---- updateGroupThunk:', form);
+  // console.log('Form data ---- updateGroupThunk:', form);
   const groupId = form.get('groupId');
-  console.log('Group ID in updateGroupThunk:', groupId);
+  // console.log('Group ID in updateGroupThunk:', groupId);
 
   const res = await fetch(`/api/groups/${form.get('groupId')}/update`, {
     method: 'PUT',
@@ -152,19 +152,19 @@ export const updateGroupThunk = (form) => async (dispatch) => {
   });
   const updatedGroup = await res.json();
   if (res.ok) {
-    console.log('this is the updated group thunk data beforehand', updatedGroup)
+    // console.log('this is the updated group thunk data beforehand', updatedGroup)
     dispatch(updateGroupAction(updatedGroup));
-    console.log('Updated Group ----- updateGroupThunk:', updatedGroup);
+    // console.log('Updated Group ----- updateGroupThunk:', updatedGroup);
     return updatedGroup;
   } else {
-    console.error('Error updating group:', updatedGroup);
+    // console.error('Error updating group:', updatedGroup);
     return updatedGroup
   }
 }
 
 export const deleteGroupThunk = (groupId) => async (dispatch) => {
-  console.log('deleteGroupThunk startingggggg')
-  console.log('deleteGroupThunk ID', groupId)
+  // console.log('deleteGroupThunk startingggggg')
+  // console.log('deleteGroupThunk ID', groupId)
 
 
   const res = await fetch(`/api/groups/${groupId}/delete`, {
@@ -174,7 +174,7 @@ export const deleteGroupThunk = (groupId) => async (dispatch) => {
     }
   })
   if (res.ok) {
-    console.log('deleteGroupThunk success')
+    // console.log('deleteGroupThunk success')
     dispatch(deleteGroupAction(groupId))
   } else {
     const errors = await res.json();
@@ -185,9 +185,9 @@ export const deleteGroupThunk = (groupId) => async (dispatch) => {
 
 export const addMemberThunk = (groupId, username) => async (dispatch) => {
   try {
-    console.log('addingMember thunk starting')
-    console.log('groupID member thunk', groupId)
-    console.log('memberThunk userNAMEE', username)
+    // console.log('addingMember thunk starting')
+    // console.log('groupID member thunk', groupId)
+    // console.log('memberThunk userNAMEE', username)
 
 
     const response = await fetch(`/api/groups/${groupId}/members`, {
@@ -200,17 +200,17 @@ export const addMemberThunk = (groupId, username) => async (dispatch) => {
       }),
     });
 
-    console.log("memberthunks ", response)
+    // console.log("memberthunks ", response)
     if (response.ok) {
-      console.log("adding member success")
+      // console.log("adding member success")
       const data = await response.json();
 
-      console.log("memberThunk", data)
+      // console.log("memberThunk", data)
  
 
     } else {
       const errorMessage = await response.text();
-      console.log("adding member fail")
+      // console.log("adding member fail")
       throw new Error(errorMessage);
     }
   } catch (error) {
@@ -221,9 +221,9 @@ export const addMemberThunk = (groupId, username) => async (dispatch) => {
 
 export const deleteMemberThunk = (groupId, username) => async (dispatch) => {
 
-  console.log('delete Member Thunk groupID', groupId)
-  console.log('delete Member Thunk USERNAME', username)
-  console.log('deletingMember thunk starting')
+  // console.log('delete Member Thunk groupID', groupId)
+  // console.log('delete Member Thunk USERNAME', username)
+  // console.log('deletingMember thunk starting')
 
 
   const res = await fetch(`/api/groups/${groupId}/members`, {
@@ -237,9 +237,9 @@ export const deleteMemberThunk = (groupId, username) => async (dispatch) => {
   });
 
   if (res.ok) {
-    console.log('sucessful delete member thunk')
+    // console.log('sucessful delete member thunk')
     const data = await res.json();
-    console.log('sucessful delete member thunk DATAAA', data)
+    // console.log('sucessful delete member thunk DATAAA', data)
     return data;
 
   } else {

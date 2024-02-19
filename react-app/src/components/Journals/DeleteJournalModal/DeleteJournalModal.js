@@ -5,7 +5,7 @@ import { useModal } from '../../../context/Modal';
 import { deleteJournalThunk, loadUserJournalsThunk } from '../../../store/journal';
 
 const DeleteJournalModal = ({ journal }) => {
-    console.log('id HERE:', journal.id)
+    // console.log('id HERE:', journal.id)
     const { closeModal } = useModal();
     const dispatch = useDispatch();
     const history = useHistory();

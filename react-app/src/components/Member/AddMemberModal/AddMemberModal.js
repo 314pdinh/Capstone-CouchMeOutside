@@ -13,8 +13,8 @@ function AddMemberModal({ group, users }) {
     const [submitted, setSubmitted] = useState(false);
     const groupMembers = group && group.members;
 
-    console.log('this is the GROUPP', group)
-    console.log('this is the groupmemners', groupMembers)
+    // console.log('this is the GROUPP', group)
+    // console.log('this is the groupmemners', groupMembers)
 
     const handleSearchChange = (e) => {
         const searchlowcase = e.target.value.toLowerCase();
@@ -41,7 +41,7 @@ function AddMemberModal({ group, users }) {
 
         setError({});
         if (group && group.id) {
-            console.log('Group ID before dispatch:', group.id);
+            // console.log('Group ID before dispatch:', group.id);
             await dispatch(addMemberThunk(group.id, userName));
             closeModal();
             dispatch(loadSingleGroupThunk(group.id));
